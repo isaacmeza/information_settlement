@@ -1,0 +1,75 @@
+\section*{Appendix 0: Additional tables that may end up in the paper}
+\label{appendix_a}
+
+\subsection{Justifying P2}
+
+The first regressions that we ran aims to justify the design of Pilot 2 based on Pilot 1, specifically the decision to treat only first hearings. Thus, we ran the main regressions of the paper looking for heterogenous effects coming from two different sources: \textit{a)} by identifying whether the intervention took place on an initial hearing and \textit{b)} by identifying the amount of days that a file was alive before we introduced our treatment (so as to argue that ``the sooner, the better'')
+
+\subsubsection{Heterogenous effects by type of hearing}
+
+Fridays are reserved by the Mexico City Labour Court for first hearings. Thus, the dummy for first hearings can be constructed only by identifying the day the audience in which the treatment took place. We constructed this dummy (which we will call $IH$ for ``initial hearing'' and $PH$ for ``posterior hearing'') and then constructed the following regression: 
+
+\begin{equation}
+    Conciliation_{i} = \beta_0 + \beta_1 PH_i + \beta_2 Calculator_i + \beta_3 Calculator_i *PH_i + \epsilon_i 
+\end{equation}
+
+We got the following results: 
+
+\FloatBarrier
+
+\begin{centering}
+\begin{table}[!ht]
+    \caption{Immediate expectation updating}
+    \label{exp_updating}
+    \scriptsize{\input{stage.tex}}
+\end{table}
+\end{centering}
+
+
+\FloatBarrier
+
+
+\subsubsection{Heterogenous effects by the time we take to treat them}
+
+As mentioned before, another specification we used was to interact by the number of days that the casefile was alive before the treatment took place. We can get the date in which the casefile was born by looking at the initial case filing and then subtract this from the date in which the subjects involved received the treatment. We have not yet figured out why, but we do loose a lot of observations because the date of the initial filing is not encoded in the database. Although this is an important weakness of this table, I do believe that its results are interesting. Here, $days$ is the number of days that we took to treat a living case file.  
+
+We ran the following regression with the windsorsized version of the $days$ variable: 
+
+\begin{equation}
+Conciliaiton_i = \beta_0 + \beta_1 Calculator_i + \beta_2 days_i + \beta_3 Calculator_i * days_i + \epsilon_i
+\end{equation}
+
+We obtainined the following results: 
+
+\FloatBarrier
+
+\input{timeTillTreatment.tex}
+
+\FloatBarrier
+
+\subsection{Treatment description table}
+
+The following table summarizes the treatments and data sources for Pilots 1, 2, and 3. 
+
+\begin{landscape}
+\begin{centering}
+\begin{table}[!ht]
+    \caption{Pilots 1, 2, and 3 descriptions}
+    \label{exp_updating}
+    \scriptsize{\input{pilotsDescription.tex}}
+\end{table}
+\end{centering}
+\end{landscape}
+
+\subsection{Oster method of unobservables}
+
+%\begin{landscape}
+\begin{centering}
+\begin{table}[!ht]
+    \caption{Unobservables}
+    \label{exp_updating}
+    \scriptsize{\input{osterMethod}}
+\end{table}
+\end{centering}
+%\end{landscape}
+

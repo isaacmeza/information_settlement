@@ -1,0 +1,179 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{tikz}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usetikzlibrary{calc}
+\usepackage{multirow,array}
+
+\graphicspath{{./Figuras/}}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.tiff}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tiff}
+
+
+\epstopdfDeclareGraphicsRule{.tif}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tif}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{dfn}{Definition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{obs}{Obs}
+\newtheorem{rem}{Remark}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+
+
+\title{`Model of expectations'}
+
+\author{Isaac Meza}
+\date{This draft: \today \\[2 cm] }
+
+\maketitle
+
+
+\section{Basic model}
+Our main empirical findings were the following: (1) workers and firms have biased expectations on average; (2) there is a fraction of settled cases out of court; (3) and this fraction increases when the calculator is provided, but only when the employee is present. This facts could be explained by several models. Our aim here is to write down a simple framework that can rationalize them, without claiming that this is the only way.
+%The presentation will be as follow: First we introduce a simple model were expectations are exogenous and the parties only differ in their utility function and hence in their risk aversion\footnote{For ease of exposition we will suppose there is no uncertainty in the duration of the case.}. This will help explain how different preference on risk can achieve settlement. Second, we expand the model to explain how bias in expectation can be formed. \\
+
+The model consists of a utility function defined over awarded amount for workers ($w$), lawyer ($l$), and firms ($f$) $\left(U_w(x), U_l(x), U_f(x)\right)$\footnote{We will assume that $U(0)=0$, $U^{\prime}(x)>0$ and $U^{\prime\prime}(x)\leq 0$, so that $U$ is risk averse or risk neutral. Lawyers typically get about 30\% of the winnings, we can think of this as being already reflected in their utility function.}, and subjective distributions $g_k(x)$ for $k=\{w,l,f\}$ for the amount that party $k$ gets in a trial. We define the \emph{settlement range} as\footnote{The settlement range can be interpreted as all those quantities equal to the certsinty equivalent between $\mathbb{E}_wU_w$ and $\mathbb{E}_fU_f$.} $I_{w,f}:=\left\{x\;\;|\;\;\mathbb{E}_wU_w\leq x\leq\mathbb{E}_fU_f\right\}$, were expectations are taken with respect to $g_k(x)$. In a static one-shot framework, if the worker bargains with the firm she will be willing to accept a payment $x_0$ from the firm if $x_0 \in I_{w,f}$. The expected number of settlements is just the number of non-empty intervals, while the expected conciliation amount if the worker and firm bargain is just $S_{w,f}:=\int_{I_{w,f}} f(x) dx$, where $f(x)$ is the probability distribution of the settlements.
+
+We will describe four claims that can follow easily from this simple framework. Claim 1 shows that even with the same subjective $g(x)$ for all parties, if plaintiffs (say worker or her lawyer) have more risk aversion than defendants\footnote{Since our workers are poor and since firms typically manage several cases simultaneously, we believe this is a reasonable assumption.} then the settlement range is non empty, explaining Finding 2. If the worker is more risk averse than her lawyer, then the worker has a larger settlement range than her lawyer. This means that in some cases the worker would be willing to settle but not her lawyer, creating some conflict of interest between them. Claim 2 relaxes the assumption of same expectations, and shows that if the worker is more overconfident (i.e. $g_w^o$ first-order stochastically dominates $g_w$) then the settlement range shrinks, misaligning incentives to settle between the worker and her lawyer. Claims 1 and 2 are consistent with the fact that there is more settlement when workers are present\footnote{Of course there is a selection problem we are ignoring. Our aim is to show how this simple framework could explain the correlations we see in our data.}. Claim 3 introduces the calculator by modelling it as a signal received by Bayesian updaters, and shows that when initially overconfident workers get the calculator, their settlement range increases to $\hat{I}_{w,f}$, leading to more settlements.
+
+After updating it could still be true that $\hat{I}_{l,f}\subseteq \hat{I}_{w,f}$. To be consistent with Finding 3 it would suffice to assume that firms and lawyers being repeat players already do little updating when receiving the calculator, Claim 4 formalizes this assuming that workers distribution is a mean preserving spread of the distribution of lawyers.
+
+To explain Finding 1 we need to model how expectations are formed. Claim 5 does this within our same framework of differing risk aversion by assuming that utility functions are ordered by the Arrow-Pratt criterion and that workers, lawyers and firms \textit{choose} their expectations by choosing their belief about the mean-variance ($\mu$) of their respective subjective expectation $f(x,\mu_k)$. We show that for a range of subjective expectations workers choose to be more overconfident than their lawyer.\footnote{In a richer model we could model the interaction of the worker and her lawyer as a game where the lawyer has more information. There are theory papers that do this.}
+
+
+
+\begin{claim}
+\label{claim1}
+Suppose $g_w(x)=g_l(x)=g_f(x):=g(x)$  and 
+\[A_{U_w}(x)\geq A_{U_l}(x)\geq A_{U_f}(x)\quad ;\;\forall\;x\in \operatorname{supp} g \]
+where $A_{U}(x)-\frac{U^{\prime\prime}(x)}{U^{\prime}(x)}$ is the Arrow-Pratt measure of risk aversion. Suppose further that $U_w^{\prime}(x)\leq U_l^{\prime}(x)\leq U_f^{\prime}(x)$ in a neighbourhood of $0$. Then $\emptyset\neq I_{l,f}\subseteq I_{w,f}$. That is, the worker is more willing to settle than her lawyer.
+\end{claim}
+
+\begin{claim}
+\label{claim2}
+Assume additionally that $g^o_w \succeq_{FOSD} g_w$. Then $I_{w^o,f} \subseteq I_{w,f}$. That is, overconfidence shrinks the settlement range
+\end{claim}
+
+\begin{claim}
+\label{claim3}
+Let the worker have a prior distribution $g_w$, and let the calculator be a signal with distribution $S$. Suppose further that the signal satisfies  $g_w \succeq_{FOSD} S$ and that the agent is Bayesian\footnote{We say that the agent is Bayesian if he follow a \emph{Bayesian rule} according to definition in \textit{Shmaya \& Yariv. Foundations for Bayesian Updating.}}If we denote the posterior by $\hat{g}_w$, then $I_{w,f} \subseteq I_{\hat{w},f}$. That is, after updating the settlement range increases.
+\end{claim}
+
+\begin{claim}
+\label{claim4}
+Let $g_w$ be a mean preserving spread of $g_l$, i.e. $y=x+\epsilon$ where $x\sim g_l$, $y\sim g_w$ with $\mathbb{E}[\epsilon| x]=0$. Suppose further that $U_l=U_w:=U$; then
+$I_{l,f}\subseteq I_{w,f}$. If both parties $\lbrace w, l\rbrace$ follow the same updating rule, then also $\hat{I}_{l,f}\subseteq \hat{I}_{w,f}$.
+\end{claim}
+
+
+\begin{claim}
+\label{claim5}
+Suppose all parties ``initially'' have the same subjective outcome function $g(x;\mu,\sigma)$, that $\mu$ and $\sigma$ are positively related ($\frac{\partial \sigma}{\partial \mu}>0$), and that each agent $i=\{w,l,f\}$ chooses $\mu$ to maximize their expected utility.\footnote{The defendant's problem considers a minimization of desutility: $-\mathbb{E}\left[U_f(x)\mathds{1}[0,\bar{P}]\right]$}:
+\begin{align}
+\label{max_problem_l}
+\underset{\mu, \sigma}{\max}\;\;  & \mathbb{E}\left[U_i(x)\mathds{1}[0,\bar{P}]\right]=\; \int_{[0,\bar{P}]}U_i(x)g(x;\mu,\sigma)dx:=I_{U_i}(\mu) 
+\end{align}
+If , $A_{U_w}(x)\geq A_{U_l}(x)$ for all $\;x\in \operatorname{supp} g$, then 
+\[\mu^{*}_w\leq \mu^{*}_l\]
+where $\mu_w^{*}=\operatorname{argmax} I_{U_w}(\mu)$ and analogously defined for  $\mu^{*}_l$. That is: more risk averse individuals make more `conservative' expectations.
+\end{claim}
+
+
+\pagebreak
+
+\begin{proof}[Proof of claim (\ref{claim4})]
+Note that
+\begin{align*}
+\mathbb{E}_w U=\int U(y)g_w(y)dy=&\int \mathbb{E}[U(x+\epsilon)|x]dg_l(x)dx\\
+\leq&\int U(\mathbb{E}[x+\epsilon|x])dg_l(x)dx\\
+=&\int U(x)dg_l(x)dx=\mathbb{E}_l U
+\end{align*}
+where the second equality is by the law of iterated expectation and that $y=x+\epsilon$. The inequality is achieved by Jensen's inequality and the assumption that $\mathbb{E}[\epsilon|x]=0$.
+
+If this last result is combines with Claim \ref{claim3} we can also conclude that $\hat{I}_{l,f}\subseteq \hat{I}_{w,f}$
+
+\end{proof}
+
+
+For the proof of Claim \ref{claim5} we first need a technical lemma. To simplify the presentation we will put $\sigma=\mu$. This will not alter the results.
+
+\begin{lem}
+\label{existence_uniqueness}
+
+Let $I(\mu)=\int_{[0,\bar{P}]}U(x)g(x;\mu,\mu)dx$, note that $I$ is well defined and is $\mathcal{C}^{\infty}(0,\infty)$.
+
+Suppose $g(x;\mu,\mu)$ is such that there exists $M<\infty$ such that 
+\[\frac{\partial g(x;\mu)}{\partial \mu}\leq 0\quad \quad \forall\;x\in[0,\bar{P}]\;,\;\forall\;\mu\geq M\]
+and $\lim_{\sigma\rightarrow \infty} g(x;\mu,\sigma)=0$.\\
+
+Then 
+\begin{enumerate}[(i)]
+    \item $I(\mu)$ is concave
+    \item $\lim_{\mu\rightarrow 0} I(\mu)=0$ and $\lim_{\mu\rightarrow\infty} I(\mu)=0$
+\end{enumerate}
+Therefore $I$ has a (unique) global maximum.
+\end{lem}
+
+\begin{proof}
+
+\begin{enumerate} [(i)]
+    \item First we prove $I$ is concave. As $I\in\mathcal{C}^{\infty} $ it suffices to show $I^{\prime\prime}<0$. 
+    Note that $I(\mu)\leq \mathbb{E}(U(x;\mu)) \leq U(\mathbb{E}x)=U(\mu)$; where the last inequality comes from the fact that $U^{\prime\prime}\leq 0$.
+    Taking second derivative in both sides yields the conclusion, as $U$ is concave.\\
+    
+    \item It is easy to see that 
+    \[\lim_{\mu\rightarrow 0} g(x;\mu)=0\]
+    Now, by Lebesgue's dominated convergence theorem
+   \[ \lim_{\mu\rightarrow 0}I(\mu)=\int_{[0,\bar{P}]}\lim_{\mu\rightarrow 0}U(x)g(x;\mu)=0\]
+    where the dominating function can be taken to be the Dirac-delta function.\\
+    
+    The other limit is found in the same way by an application of Lebesgue's dominated convergence theorem. Where the dominating function is now
+    \[f(x)=\max\lbrace g(x;i)\rbrace_{i=1}^{M}\in\mathbb{L}_1\]
+    Indeed, as by hypothesis
+    \[g(x;n)\leq g(x;M) \;\;\forall\; n\geq M\]
+    and for all $x\in[0,\bar{P}]$.
+    
+\end{enumerate}
+
+By an application of Rolle's theorem, there is a unique global maximum. 
+\end{proof}
+
+
+
+\begin{proof}[Proof of claim (\ref{claim5})]
+As in the proof of Claim \ref{claim1} we can derive that
+ \begin{equation}
+ \label{ineq_I}
+     I^{\prime}_{U_w}(\mu)\leq I^{\prime}_{U_l}(\mu)\;\;\forall\; \mu>0
+ \end{equation}
+ From Lemma (\ref{existence_uniqueness}) we know $I^{\prime}$ is downward sloping and that solution is unique and satisfies FOC. Suppose, for the sake of arriving to a contradiction that $\mu_l^*<\mu_w^*$. Then,
+ \[ 0=I_{U_l}^{\prime}(\mu^{*}_l)\geq I_{U_w}^{\prime}(\mu^{*}_l)\geq I_{U_w}^{\prime}(\mu^{*}_w)=0 \]
+ where first inequality is a consequence of (\ref{ineq_I}) and second of the downward sloping nature of $I^\prime$. We conclude that $\mu_w^*=\mu_l^*$, arriving to a contradiction.
+\end{proof}
+
+
+
+
+\end{document}

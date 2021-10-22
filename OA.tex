@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\input{preamble.tex}
+\usepackage{pdfpages}
+\usepackage{dsfont}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{letterpaper}
+\geometry{margin=2.5cm}
+\usepackage{fullpage}
+\usepackage{longtable}
+\usepackage{bigstrut}
+\usepackage{array}
+\usepackage{multirow}
+
+\usepackage{xr}
+\makeatletter
+\newcommand*{\addFileDependency}[1]{
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{
+    \externaldocument{#1}
+    \addFileDependency{#1.tex}
+    \addFileDependency{#1.aux}
+}
+
+\myexternaldocument{main}
+
+% -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\title{ONLINE APPENDIX \\
+Information and Bargaining through Agents: Experimental Evidence from Mexico's Labor Courts}
+
+\author{Joyce Sadka, Enrique Seira and Christopher Woodruff \thanks{Sadka: ITAM. 
+Seira: ITAM. Woodruff: University of Oxford.}}
+
+\date{ \today }
+
+\maketitle
+
+
+\appendix
+\addcontentsline{toc}{section}{Appendices}
+
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\setcounter{section}{0}
+\renewcommand\thesection{A\arabic{section}}
+\renewcommand\thesubsection{\thesection\arabic{subsection}}
+
+\input{appendix_a.tex}
+
+\newpage
+
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{B\arabic{figure}}
+
+\setcounter{section}{0}
+\renewcommand\thesection{B\arabic{section}}
+\renewcommand\thesubsection{\thesection\arabic{subsection}}
+
+
+\input{appendix_b.tex}
+
+\newpage
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{C\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{C\arabic{figure}}
+
+\setcounter{section}{0}
+\renewcommand\thesection{C\arabic{section}}
+\renewcommand\thesubsection{\thesection\arabic{subsection}}
+
+
+\input{appendix_c.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%BIBLIOGRAPHY
+
+\bibliographystyle{aea}
+\bibliography{References}
+
+%\printbibliography
+
+
+\end{document}

@@ -1,0 +1,223 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amscd}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{lscape}
+\usepackage{tikz}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usetikzlibrary{calc}
+\usepackage{multirow,array}
+
+\graphicspath{{./Figuras/}}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.tiff}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tiff}
+
+
+\epstopdfDeclareGraphicsRule{.tif}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tif}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{dfn}{Definition}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{obs}{Obs}
+\newtheorem{rem}{Remark}
+\newtheorem{prob}{Problem}
+
+\begin{document}
+
+
+\title{`Model of expectations'}
+
+\author{Isaac Meza}
+\date{This draft: \today \\[2 cm] }
+
+\maketitle
+
+
+\section{Basic model}
+In this model we formalize how each part (employee, employee's lawyer and defendant) form their expectations about the expected amount.\\
+
+The framework we are going to use is that of \emph{expected utility} but with a slight modification. \\
+
+First we consider a setting in which there is no uncertainty in the duration of the case, so that expectations need to be formed about the amount of the case. We can think that the judge solves the suit at the moment the casefile is presented.\\
+
+Given a casefile $S(X)$ there is a distribution $f_S(\mu, \sigma)$ (represented by a probability density function with positive but possibly unbounded support) of  payments known by all parties; what is unknown is its mean $\mu$ and variance $\sigma^2$. There is also a maximum amount that can be awarded $\bar{P}$ according to the casefile $S$. Each agent has a utility function $U_i(x)$\footnote{We will assume that $U(0)=0$, $U^{\prime}(x)>0$ and $U^{\prime\prime}(x)\leq 0$, so that $U$ is risk averse or risk neutral.}
+
+Each agent faces a similar problem, for both lawyers, plaintiff and defendant, the problem is\footnote{The defendant's problem considers a minimization of desutility: $-\mathbb{E}\left[U_f(x)\mathds{1}[0,\bar{P}]\right]+\lambda_fL_f$}:
+
+\begin{align}
+\label{max_problem_l}
+\underset{\mu, \sigma}{\max}\;\;  & \mathbb{E}\left[U_i(x)\mathds{1}[0,\bar{P}]\right]-\lambda_iL_i(|\mu-\mu_{judge}|)=\; \int_{[0,\bar{P}]}U_i(x)f(x;\mu,\sigma)dx-\lambda_iL_i(|\mu-\mu_{judge}|) \\ \nonumber
+\;  \text{s.t} & \\ 
+\; \; \quad \quad & \frac{\partial \sigma}{\partial \mu}>0 \nonumber
+\end{align}
+
+while the problem the employee faces is
+
+\begin{align}
+\label{max_problem_a}
+\underset{\mu, \sigma}{\max}\;\;  & \mathbb{E}\left[U_a(x)\mathds{1}[0,\bar{P}]\right]-\lambda_aL_a(|\mu-\mu_{l}^{*}|)=\; \int_{[0,\bar{P}]}U_a(x)f(x;\mu,\theta\sigma)dx-\lambda_aL_a(|\mu-\mu_{l}^{*}|) \\ \nonumber
+\;  \text{s.t} & \\ 
+\; \; \quad \quad & \frac{\partial \sigma}{\partial \mu}>0 \nonumber
+\end{align}
+
+We provide some comment on problems (\ref{max_problem_l}, \ref{max_problem_a}). The agents chooses an expected amount in order to maximize (minimize) its \emph{`expected utility'} but the density of payments is `truncated' to the valid interval $[0,\bar{P}]$. In this sense it is a modification of maximization of expected utility. We impose the restriction that
+as the mean increases so does the variance, to capture the idea that bigger expectations in amount come with greater uncertainty. The exact relation between $\mu$ and $\sigma$ is something taken as given, according to how sensible the relation we want to be.  In the employee's problem the exogenous parameter $\theta$ will assess the effect of the calculator. Specifically, as more information is given \colorbox{yellow}{complete here}\footnote{The effect of the calculator can also be modeled as changing $\mu_{l}^{*}$ for $\mu_{judge}$ - or reducing $\lambda_a$}. Finally the loss function $L_i$  punishes deviations from ``ground truth" in case of lawyers and deviation from what their lawyers says ($\mu_{l}^{*}$-the optimizer in lawyers problem) in case of employee , and $\lambda_i$ is how sensible this deviations are taken into account.\footnote{Lawyers can be worried by deviations from the truth if for example reputation is being considered.}
+
+
+\pagebreak
+
+\section{Technical results}
+
+We now prove problems (\ref{max_problem_l} , \ref{max_problem_a}) are well-defined and provide some properties of the model. We state this results as theorems.\\
+
+To simplify the presentation we will ignore for now the loss function $L$ and put $\sigma=\mu$, we also supess the subindex $i$. This will not alter the results. Let $I(\mu)=\int_{[0,\bar{P}]}U(x)f(x;\mu,\mu)dx$, note that $I$ is well defined and is $\mathcal{C}^{\infty}(0,\infty)$.\\
+
+From now on we will suppose $U(0)=0$, $U^{\prime}(x)>0$ and $U^{\prime\prime}(x)\leq 0$. 
+
+\begin{theorem}
+\label{existence_uniqueness}
+Take $U$ as above and $f(x;\mu,\mu)$ such that there exists $M<\infty$ such that 
+\[\frac{\partial f(x;\mu)}{\partial \mu}\leq 0\quad \quad \forall\;x\in[0,\bar{P}]\;,\;\forall\;\mu\geq M\]
+and $\lim_{\sigma\rightarrow \infty} f(x;\mu,\sigma)=0$.\\
+
+Then 
+\begin{enumerate}[(i)]
+    \item $I(\mu)$ is concave
+    \item $\lim_{\mu\rightarrow\0} I(\mu)=0$ and $\lim_{\mu\rightarrow\infty} I(\mu)=0$
+\end{enumerate}
+Therefore $I$ has a (unique) global maximum.
+\end{theorem}
+\begin{proof}
+
+\begin{enumerate} [(i)]
+    \item First we prove $I$ is concave. As $I\in\mathcal{C}^{\infty} $ it suffices to show $I^{\prime\prime}<0$. 
+    Note that $I(\mu)\leq \mathbb{E}(U(x;\mu)) \leq U(\mathbb{E}x)=U(\mu)$; where the last inequality comes from the fact that $U^{\prime\prime}\leq 0$.
+    Taking second derivative in both sides yields the conclusion, as $U$ is concave.\\
+    
+    \item It is easy to see that 
+    \[\lim_{\mu\rightarrow 0} f(x;\mu)=0\]
+    Now, by Lebesgue's dominated convergence theorem
+   \[ \lim_{\mu\rightarrow 0}I(\mu)=\int_{[0,\bar{P}]}\lim_{\mu\rightarrow 0}U(x)f(x;\mu)=0\]
+    where the dominating function can be taken to be the Dirac-delta function.\\
+    
+    The other limit is found in the same way by an application of Lebesgue's dominated convergence theorem. Where the dominating function is now
+    \[g(x)=\max\lbrace f(x;i)\rbrace_{i=1}^{M}\in\mathbb{L}_1\]
+    Indeed, as by hypothesis
+    \[f(x;n)\leq f(x;M) \;\;\forall\; n\geq M\]
+    and for all $x\in[0,\bar{P}]$.
+    
+\end{enumerate}
+
+By an application of Rolle's theorem, there is a unique global maximum. 
+\end{proof}
+
+This proves the problem is well defined, now we come to state some comparative statics results.
+
+\begin{theorem}
+\label{th_riskaverse}
+Let $U$ and $V$ be two utility functions with the properties as above. If
+\[A_U(x)=-\frac{U^{\prime\prime}(x)}{U^{\prime}(x)}\geq A_V(x)=-\frac{V^{\prime\prime}(x)}{V^{\prime}(x)}\;\;\forall\;x\in(0,\bar{P}]\]
+where $A_U$ is the Arrow-Pratt measure of risk aversion. Then 
+\[\mu^{*}_U\leq \mu^{*}_V\]
+where $\mu_U^{*}=\operatorname{argmax} I_U(\mu)$ and analogously defined for  $\mu^{*}_V$.
+\end{theorem}
+
+What the previous theorem says in words is that more risk averse individuals make more `conservative' expectations.
+
+\begin{proof}
+WLOG we can assume that\footnote{Formally we would need that $\frac{U^{\prime}(x)}{V^{\prime}(x)}\leq 1$   in a neighbourhood of $0$ and then take limit.} $\frac{U^{\prime}(0)}{V^{\prime}(0)}\leq 1$, if not we can make re-scaling of the utility functions to achieve the inequality, and recall that neither the measures of risk aversion nor the optimizers will change. \\
+
+Now,
+\begin{align*}
+A_U(x)\geq A_V(x)\; \Longleftrightarrow & \; \frac{U^{\prime\prime}(x)}{U^{\prime}(x)}\leq \frac{V^{\prime\prime}(x)}{V^{\prime}(x)} \\
+\Longleftrightarrow \; & \frac{d}{dx}\ln(U^{\prime}(x))\leq \frac{d}{dx}\ln(V^{\prime}(x))\\
+\;\Longleftrightarrow & \int_0^{y}\frac{d}{dx}\ln(U^{\prime}(x))dx\leq \int_0^{y}\frac{d}{dx}\ln(V^{\prime}(x))dx \;\;\forall\; y\in(0,\bar{P}]\\
+\Longleftrightarrow \; & \ln(\frac{U^{\prime}(y)}{U^{\prime}(0)})\leq \ln(\frac{V^{\prime}(y)}{V^{\prime}(0)})\;\;\forall\; y\in(0,\bar{P}]\\
+\; \Longleftrightarrow & \frac{U^{\prime}(y)}{U^{\prime}(0)}\leq \frac{V^{\prime}(y)}{V^{\prime}(0)}\;\;\forall\; y\in(0,\bar{P}] \\
+\Longleftrightarrow \; & U^{\prime}(y)\leq V^{\prime}(y)\;\;\forall\; y\in(0,\bar{P}]
+\end{align*}
+
+As $U(0)=V(0)$ the last inequality tells us that
+\[U(x)\leq V(x)\;\;\forall\; x\in[0,\bar{P}]\]
+ which in fact leads to 
+ \begin{equation}
+ \label{ineq_I}
+     I^{\prime}_U(\mu)\leq I^{\prime}_V(\mu)\;\;\forall\; \mu>0
+ \end{equation}
+ From Theorem(\ref{existence_uniqueness}) we know $I^{\prime}$ is downward sloping and that solution is unique and satisfies FOC. Suppose, for the sake of arriving to a contradiction that $\mu_U^*<\mu_V^*$. Then,
+ \[ 0=I_V^{\prime}(\mu^{*}_V)\geq I_U^{\prime}(\mu^{*}_V)\geq I_U^{\prime}(\mu^{*}_U)=0 \]
+ where first inequality is a consequence of (\ref{ineq_I}) and second of the downward sloping nature of $I^\prime$. We conclude that $\mu_U^*=\mu_V^*$, arriving to a contradiction.
+\end{proof}
+
+\begin{rem}
+\begin{enumerate}[(i)]
+\item The conclusion of the theorem can moreover be strengthen to say the following: All things equal, if an individual lowers their expectation is because she gets more risk averse.
+\item Instead of the Arrow-Pratt measure of risk aversion the conclusion holds if instead we consider the Relative Risk of Aversion (RRA). 
+\item The hypothesis
+\[A_U(x)\geq A_V(x)\;\;\forall\;x\in(0,\bar{P}]\]
+can be relaxed if instead of considering the whole interval the inequality is violated only in a measure zero set. Moreover the result can be localized, in the sense that only a neighbourhood around the solution $\mu^*$ needs to be considered. However, for the usual risk-averse utility functions these is not needed.
+\end{enumerate}
+\end{rem}
+
+
+The next theorem describes the effect of the `calculator' on expectations.
+
+
+\begin{theorem}
+\colorbox{yellow}{here goes theorem (in development)}
+\end{theorem}
+
+
+\begin{obs}
+Another comparative static result is the following
+\[\frac{\partial \mu^{*}}{\partial \bar{P}}>0\]
+\end{obs}
+
+\pagebreak
+
+\section{Extension of the model - Uncertainty in duration}
+
+
+\pagebreak
+
+\section{Example}
+
+The following figure illustrates how different utility functions gives rise to different solutions according to Theorem (\ref{th_riskaverse}).
+
+
+\begin{figure}[H]
+    \label{placebo_information}
+    \caption{Objective functions and expectations}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{model_example.tiff}
+         \end{center}
+              \scriptsize
+             \textit{Notes:} Utility functions are:\\
+             \begin{enumerate}[(1)]
+                 \item $\log(x+1)$ 
+                 \item $x^{0.3}$
+                 \item $1-\exp(-x)$
+                 \item $1-\exp(10*x)$
+                 \item Firm-$\log(10x+1)$
+                 \item Lawyer-$x$
+             \end{enumerate}
+             and the corresponding density is taken to be a half-normal distribution.
+\end{figure}
+
+\end{document}
