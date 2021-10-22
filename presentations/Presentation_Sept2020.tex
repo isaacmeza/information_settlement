@@ -1,0 +1,1424 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\documentclass[9pt]{beamer}
+\usepackage{graphicx}                       % loads images
+\usepackage{color}                          % for color in text
+\usepackage{float}                          % to place [H]
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{bigstrut}
+\usepackage{array}
+    
+\usepackage{multirow}
+\usepackage{xr}
+%\usepackage[round]{natbib}
+
+
+%  \usepackage[backend=biber, style=alphabetic ,
+% citepstyle=authoryear]{biblatex}[2016/01/01] %the latest version of biblatex?
+  % biber is version 2.4; the latest?
+%\addbibresource{paper/References.bib}
+
+%Tables path
+\newcommand{\folder}{../paper/Tables}
+\graphicspath{{../paper/Figuras/}}
+
+
+\usepackage{color}
+%\usepackage{morefloats}
+%\usepackage{showkeys}
+
+\usepackage{enumerate}
+\usepackage[labelfont=bf]{caption}
+\usepackage[labelfont=bf, justification=justified]{subcaption}
+\captionsetup{position=top}
+\captionsetup[subfigure]{justification=centering}
+
+
+
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.tiff}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tiff}
+
+
+
+\epstopdfDeclareGraphicsRule{.tif}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tif}
+
+
+\usepackage{adjustbox}
+\usepackage{setspace}
+
+\renewcommand{\rmdefault}{ppl}
+\definecolor{darkred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{navyblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.6, 0.24}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdfstartview={FitH},    		% fits the width of the page to the window
+    pdftitle={Overconfidence and settlement: evidence from Mexican Labour courts},    % title
+    pdfauthor={CJMS},     % author
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=white,          % color of internal links (change box color with linkbordercolor)
+    citecolor=darkred,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=darkred           % color of external links
+}
+
+\newcommand{\green}[1]{\textcolor{cadmiumgreen}{#1}}
+
+\newcommand{\comment}[1]
+{\par {\bfseries \color{blue} #1 \par}}
+%\usepackage{showkeys}
+
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+            \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+        \end{beamercolorbox}%
+    }
+}
+
+
+\title{Information and Bargaining through Agents}
+
+% A subtitle is optional and this may be deleted
+\subtitle{Experimental Evidence from Mexico's Labor Courts}
+
+\author{Joyce Sadka\inst{1} \and Enrique Seira\inst{2} \and Chris Woodruff\inst{3}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[ITAM, Oxford] % (optional, but mostly needed)
+{
+  \inst{1,2}%
+  Instituto Tecnologico Autonomo de Mexico
+  \and
+  \inst{3}%
+  Oxford University
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date{UC Riverside, 17 May, 2021}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+%\subject{Applied Microeconomics}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+% Let's get started
+\begin{document}
+
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%Labour market framing
+%\section{Motivation}
+
+%\begin{frame}{Motivation}{}
+%  Labour laws in developing countries are often highly protective of workers
+%  \begin{itemize}
+%      \item Difficult to fire workers, even for cause
+%      \item High severance pay, etc. 
+%  \end{itemize}
+%  \pause
+%  \vspace{.1in}
+%  These laws are generally seen as leading to inefficiencies in labour markets. (Besley and Burgess; Heckman and Pages, etc.) 
+%  \pause
+%  \\
+%  \vspace{.1in}
+%    That post-separation payments cause inefficiencies is not obvious unless employers and employees valuing these post-separation benefits differently. 
+%    \\ \vspace{.1in}
+%    What might cause differences in the valuation of these benefits? We focus on uncertainty or inefficiency in enforcement as one potential cause. 
+%    
+%      
+%\end{frame}
+
+\section{Motivation}
+
+\begin{frame}{Motivation}{}
+%The post-separation payments are enforced by courts, often specialized labour courts. 
+
+  Courts function poorly in low- and middle-income countries.
+  \begin{itemize}
+      \item Large backlogs
+      \item Long delays in resolution
+      \item Highly variable and unpredictable outcomes
+  \end{itemize}. 
+  
+  \vspace{2mm}
+  \noindent There are costs to financial markets (Ponticelli and Alencar (2016)) and the real economy (Boehm and Oberfield (2020)). 
+  
+  \pause
+  \vspace{2mm}
+  There is high-level evidence that court reform can be effective (Chemin (2020)), especially when specialized courts are created (Visaria (2009); Lichand and Soares (2014)). 
+  
+  \vspace{2mm}
+  But much less micro-analytical evidence; in particular, few experiments (Greiner and Matthews (2016))
+  
+  \end{frame}
+ \begin{frame}{Motivation}{}
+  The Mexico City Labor Court (MCLC) asked us to help them find ways to improve the functioning of the court. 
+  \begin{itemize}
+      \item This requires improving our understanding of why the court functions poorly.
+      \item In particular, the MCLC suffers from long average case duration and low settlement rates.
+  \end{itemize} 
+  
+  \vspace{2mm}
+  \pause
+  
+    With this in mind, we conduct a series of experiments in MCLC cases:
+    \begin{itemize}
+        \item Using historical case outcomes, we provide information on predicted case outcomes to parties in ongoing cases (March 2016 to February 2017), or to workers prior to filing a case (May 2017 - August 2018).
+        \item Measure the effect of information on settlement rates and plaintiff outcomes.
+    \end{itemize}
+\pause
+\vspace{2mm}
+We take an "economist as plumber" (Duflo 2017) approach to asking:
+\begin{enumerate}
+    \item Can we improve outcomes (for workers), holding the functioning of the court constant?
+    \item Can we learn enough about the causes of the court's problems to help design changes that improve the functioning of the court?
+\end{enumerate}
+
+ \end{frame}
+
+\begin{frame}{Literature}
+We connect to the literature in four places:
+\begin{enumerate}
+    \item Reform of court systems: Ponticelli and Alencar (2016); Boehm and Oberfield (2020); Chemin (2020); Visaria (2009); Lichand and Soares (2014); (Greiner and Matthews (2016).
+    \item Experts and agency: \textbf{Anagol et al. (2017)}; Schneider (2012); Emons (1997); List and Syverson (2008); Hubbard (1998, 2000); \textbf{Anderson and Heaton (2012)}.
+    \item Bargaining and settlements: Rubenstein (1982); Myerson and Satterthwaite (1983); \textbf{Yildiz (2011)}; \textbf{Gilson and Mnookin (1994)}; Ashenfelter and Dahl (2012).
+    \item Providing information: Andrabhi et al. (2017); Belot et al. (2018); Jensen (2010); Dizon-Ross (2019); Chong et al. (2015); Reinikka and Svensson (2011).
+
+\end{enumerate}
+    
+\end{frame}
+
+\begin{frame}{Outline}
+  \begin{enumerate}
+      \item Context
+      \item Stylized facts
+      \item Experimental design and results
+      \item Plaintiff welfare effects
+      \item Conclusions
+  \end{enumerate}
+\end{frame}
+
+ \begin{frame}{Context}
+
+    \begin{figure}[H]
+    \label{MCLCPicture}
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{paper/Figuras/MCLCPicture.JPG}
+        \end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Context}{}
+%The post-separation payments are enforced by courts, often specialized labour courts. 
+  The Mexico City Labor Court receives 30,000+ filings a year. Cases are assigned to one of 20 "sub-courts". \\
+\pause
+ \vspace{.1in}
+The majority are unfair dismissal cases filed by individual workers suing employers for severance pay. 
+\begin{itemize}
+    \item Mexican labor law requires severance pay unless workers are dismissed for deviant behavior.
+\end{itemize}
+
+\pause
+\vspace{.15in}
+
+Courts are a disciplining device for a bargaining game between the plaintiff and defendant. 
+   \begin{itemize}
+       \item Most cases reached a bargained settlement. 
+       \item The 55\% settlement rate in the MCLC is lower than rates for similar cases of 70\% in Australia, 80\% in the U.S. 90\ in Sweden, etc.  
+   \end{itemize}
+ \end{frame}
+ 
+ \begin{frame}{Case Flow}
+
+    \begin{figure}[H]
+    \label{calc_template}
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{paper/Figuras/Stylized Diagram of Case Origination.pdf}
+        \end{center}
+\end{figure}
+\end{frame}
+
+ \begin{frame}{Context}
+    
+The law does not work so well for workers:
+    \begin{itemize}
+        \item Workers often at least partly informal (Kumler et al. (2020))
+        \item Employers and lawyers know some tricks
+        \item Collection of awards is challenging
+    \end{itemize}
+
+\pause
+\vspace{2mm}
+The process does not work so well, either:
+\begin{itemize}
+        \item Workers are almost always first-time users of the court; median plaintiff is a lower-wage worker with modest schooling level. 
+        \item Many lawyers are "informal", capturing clients as the workers approach the court.
+        \item anecdotal evidence of corruption, particularly in enforcement, but also in side deals between plaintiff lawyers and defendants
+    \end{itemize}
+
+  \end{frame}
+%\begin{frame}{Motivation}{}
+%Why \textit{incrementally} improved? 
+
+%  Institutions matter for development. The most compelling evidence for this is from historical data.
+%  But we can't change history. \pause
+  
+%  \vspace{.1in}
+%  Moreover, institutions may be complementary to one another. Fixing one may not result in any improvement. That makes reform challenging. 
+%  \\  \vspace{.1in}
+%  So we want to understand whether and how we can implement practical step-by-step changes to improve the functioning of institutions.
+%  \begin{itemize}
+%      \item Kondylis \& Stein (2018) [Cites on other institution to follow.]
+%  \end{itemize}
+
+%\end{frame}
+
+
+%\begin{frame}{Unfair dismissal cases}
+%   \begin{itemize}
+
+ %\item \textbf{The court:} We work with the Mexico City Labor Court (MCLC).
+ %       \vspace{0.05in}
+ %       \begin{itemize}
+ %           \item Receives 30,000 new cases per year.
+ %           \item Its backlog would take 4 years to process.
+ %       \end{itemize}
+        
+ %      \item \textbf{The lawsuits:} The courts must determine fair/unfair dismissal.        \vspace{0.05in}
+ %        \pause
+       
+        
+%        \item \textbf{The law:} Proving fair dismissal is difficult; legal severance is a minimum of three months' wage with benefits. Firms (defendants) may claim:
+%        \vspace{0.05in}
+%        \begin{itemize}
+%        \item I don't know this person
+%        \item This person resigned voluntarily
+%        \item I did not fire this person, will offer reinstatement
+%        \end{itemize}
+       %\item \textbf{Conciliation mandated by law:} The first hearing is supposedly dedicated to "conciliation". The MCLC has 1 assigned conciliator per individual court.
+       %\vspace{0.05in}
+       
+      % \item \textbf{What happens if they don't settle:} Defendant answers, evidence is submitted and viewed, and the court issues a judgment.
+     %  \vspace{0.05in}
+       
+   %    \end{itemize}         
+        
+  %   \end{frame}
+     
+ %    \begin{frame}{Case Flow}
+  %     \begin{figure}
+  %  \begin{center}
+   %     \includegraphics[width=0.55\textwidth]{presentations/iCaseFlowChart.png}
+  %      \end{center}
+% \end{figure}
+   %  \end{frame}
+     
+%\begin{frame}{... More context}
+ %   \begin{itemize}     
+%              \item \textbf{Enforcement:} is not trivial. Among 5,000 historical cases, 53\% of Workers who win a judgment collect nothing.  
+%      \pause 
+%       \item \textbf{Lawyers:} Legal representation is necessary to file a lawsuit. Lawyers dominate the process of the lawsuit. The presence of the plaintiff / defendant at hearings is not compulsory. 
+%       \vspace{0.05in}
+%            \begin{itemize}
+%                \item Public lawyers:
+%                \begin{itemize}
+%                    \item Free service to plaintiffs; paid a flat wage.
+%                    \item Generally well qualified, but overworked: they handle 10 times more cases on average.
+%                \end{itemize}
+%                \vspace{0.05in}
+%                \item Private lawyers:
+%               \begin{itemize}
+                   % \item They must be licensed, but do not have to pass a bar exam.
+%                    \item Charges: initial fee to file the lawsuit (around 150 USD), contingency fee of 30-40 percent.
+%                    \item Large variation in quality (anecdotal evidence).
+%                \end{itemize} 
+%            \end{itemize}
+%            \vspace{0.05in}
+%Will say more about the incentives of the lawyers in a few slides.
+%    \end{itemize}
+%\end{frame}
+
+
+ 
+
+%\section{Bargaining and agency}
+
+%\section{Bargaining}
+%\begin{frame}{Motivation: Bargaining}
+
+
+   
+%  \end{frame}
+  
+  
+
+
+%        \item Abrams and Yoon (2007): random assignment of lawyers to clients in Nevada
+%        \item Anderson and Heaton (2012): Public defenders achieve lower sentences than  court-appointed lawyers in Philadelphia)
+ 
+
+\begin{frame}{Context}
+
+The plaintiff's problem is therefore characterized by asymmetric information and agency. Our experiment will provide evidence on three questions: 
+\begin{enumerate}
+      \item Does providing information on expected outcomes increase settlement rates, either by reducing information asymmetries or by reducing overconfidence? 
+      \item Is there evidence that agency issues are important in the bargaining process?
+      \item Is the welfare of the parties, and the plaintiffs in particular, improved by the provision of information? 
+  \end{enumerate}
+ 
+ 
+\end{frame}
+
+\section{Data}
+
+\begin{frame}{Data}
+We begin by digitizing data from the initial filing of more than 5000 completed cases.
+        \begin{itemize}
+            \item Characteristics of the worker: wage, tenure, claims, etc.
+            \item Outcomes: settlement, judgment, award (collected)
+        \end{itemize}
+        \pause
+    We use these data:
+    \begin{enumerate}
+        \item to document a set of stylized facts about the functioning of the court.
+        \item to develop models predictive of case outcomes (the "calculator") used in the experiments.
+    \end{enumerate} 
+\pause
+\vspace{2mm}
+We also use survey data from phases 1 and 3 of the experiment:
+            \begin{itemize}
+                \item Phase 1: Baseline survey of parties in ongoing cases.
+                \item Phase 3: Baseline, 2 week, and 2-month follow-up surveys of dismissed workers prior to filing a case.
+                %\item \textbf{Parties:} Lawyers almost always present, worker present around 20\% of the time. 
+                %\vspace{0.05in}
+                \item Data: education, how they found their lawyer, payment to lawyer, expectations about win probability and amount, lawsuit duration, knowledge of the law and of own claims.
+               % \vspace{0.05in}
+                %\item \textbf{Exit survey}: expectations after trial (only for people who did not settle). About 50\% take up.
+            \end{itemize}
+%    \item \textbf{Experiment(s):} We implement an information experiment in three phases.
+%           \begin{itemize}
+%           \item \textit{Phase 1:} On-going cases at any stage of the process (subcourt 7)
+%           \item \textit{Phase 2:} Cases in their first hearing (5 subcourts)
+%           \item \textit{Phase 3:} Sample of workers approaching the court (not yet filed)
+%       \end{itemize}
+  
+%    The main outcomes of interest are settlement rates and settlement amounts. (More details on the experiment in a few slides.)
+  
+       
+\end{frame}
+
+\section{Stylized Facts}
+
+%\section{Data}
+
+\begin{frame}{Stylized Facts: Recovery is low}
+We begin by describing a few stylized facts based on data from the case files and surveys. 
+\vspace{0.2in}
+    \begin{itemize}
+        \item \textbf{Fact 1 (Awards are low):} The amount recovered is a small percentage of the amount asked for, and is even less than what the law mandates.
+            
+    \end{itemize}
+    \begin{figure}[H]
+    \label{claimsvsoutcomes}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{Amountasked.tiff}
+        \end{center}
+    \end{figure}    
+\end{frame}
+
+%\begin{frame}{Recovery rate is low}
+%Why is the recovery rate so low?
+
+%\begin{itemize}
+%        \item Plaintiffs (lawyers) may misrepresent the basic facts – e.g., they may overstate the wages of the plaintiff.
+%\item Defendants may use tricks to reduce the bargaining power of the plaintiff – e.g., employees may sign a blank sheet of paper as a condition to taking job; later becomes resignation letter.
+
+%\item Bargaining power – plaintiffs may be less patient, or may worry that they will not be able to collect a judgment, and so may settle for a small share of what they are due. 
+
+%            \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Information asymmetry}
+%\textbf{Moral hazard by private lawyers:} Private lawyers have more information than workers and convince them to sue by inflating their expectations of winning. Two main drivers:
+%\vspace{0.1in}
+%    \begin{itemize}
+ %       \item \textbf{Low information environment}: Suing workers have:
+   %     \begin{itemize}
+  %          \item Little information of the law
+   %         \item No repeated experience
+    %        \item Possibly a propensity to biased expectations (e.g., angry)
+  %      \end{itemize}
+   %     \vspace{0.1in}
+   %     \item \textbf{Incentives of Private Lawyers:} Inflating the claim and not settling. Why?
+  %      \begin{itemize}
+  %              \item Less risk averse than the worker as they handle many cases
+   %             \item They make a profit from just filing 
+                %\item Even bad lawyers have some low probability of winning, due to excessive formalism, the low quality of the labor courts, and corruption. ESTO LO QUITE PORQUE AQUI SI ESTA ALINEADO CON EL WORKER
+  %       \end{itemize}
+  %        \vspace{0.1in}
+   %     \item{While our data shows low-information of workers and inflated initial claim of private lawyers, we have not yet nailed the moral hazard story} 
+  %          \begin{itemize}
+   %             \item The main problem is that lawyers selection is endogenous to claims, misinformation, etc.
+    %        \end{itemize}
+ %   \end{itemize}
+%\end{frame}
+
+
+\begin{frame}{Long Duration}
+
+    \begin{itemize}
+        \item \textbf{Fact 2 (Low settlement rates in spite of long trials):}
+            \begin{itemize}
+            \vspace{0.05in}
+                \item Mexico 55\% of cases are settled. (79\% in Australia, 80\% US, 90\% Sweden.)
+               % \item  Even those who settle take a long time to do so.
+            \end{itemize}
+    \end{itemize}
+    \begin{figure}[H]
+    \label{DurationFig}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{paper/Figuras/caseending_overtime.pdf}
+        \end{center}
+\end{figure}
+\end{frame}
+
+
+
+%\begin{frame}{Stylized Facts: Recovery is low}
+%    \begin{itemize}
+%        \item \textbf{Fact 3 (Settlement amount and duration):} Nominal settlement amounts increase with duration; NPV of settlement is less clear
+            
+%    \end{itemize}
+%    \begin{figure}[H]
+%    \label{claimsvsoutcomes}
+%    \begin{center}
+%        \includegraphics[width=0.6\textwidth]{presentations/set_q.png}
+%        \end{center}
+%    \end{figure}    
+%\end{frame}
+
+\begin{frame}{Misinformation and Overconfidence}
+\begin{itemize}
+ \item \textbf{Fact 3 (Misinformation):}
+        \vspace{0.05in}
+        \begin{itemize}
+            \item Only 60\% of plaintiffs know what they are claiming in their own lawsuit. 
+            \vspace{0.05in}
+            \item Only one-third of plaintiffs know what the legal severance pay is.
+        \end{itemize}
+  \item  \textbf{Fact 4 (Overconfidence):} Plaintiffs on average think they will win 78\% of the time, while their average win rate in the data is 41\%.The sum of subjective probabilities of winning for the same cases is 1.47
+\end{itemize}
+\end{frame}
+ 
+ \begin{frame}{Plaintiff knowledge of law and own claims}
+        \begin{figure}[H]
+    \label{DurationFig}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{paper/Figuras/knows_all_byType.pdf}
+        \end{center}
+\end{figure}
+\end{frame}
+
+ 
+\begin{frame}{Public vs. private lawyers}
+    \begin{itemize}
+        \item \textbf{Fact 5 (Public and private lawyers):} Private lawyers file larger claims, but recover the same, on average, as public lawyers. 
+      \begin{itemize}
+          \item Plaintiff receives less after accounting for fees.
+      \end{itemize}  
+    \end{itemize}
+    \begin{table}[H]
+    \label{claimsvsoutcomes}
+    \begin{center}
+        \scriptsize{\input{./paper/Tables/TableReg1_log_pres.tex}}
+        \end{center}
+    \end{table}    
+\end{frame}
+
+
+
+
+
+
+\section{Design}
+
+\begin{frame}{The Experiment}{}
+The experiment was conducted with parties in ongoing cases in three phases:
+%\begin{itemize}
+  %              \item Lawyers almost always present, worker present about 20\% of the time.
+ %        \end{itemize}
+   \begin{itemize}
+       \item Phase 1: 
+       \begin{itemize}
+           \item A single sub-court (7)
+           \item 1103 cases, March - May 2016
+           \item hearings at all points of the process
+       \end{itemize}
+  \pause     
+       \item Phase 2: 
+       \begin{itemize}
+           \item Scale-up to an additional 4 sub-courts
+           \item \~1300 cases, October 2016 - February 2017
+          % \item Information treatment + placebo
+           \item First hearings only
+       \end{itemize}
+\pause
+    \item Phase 3:
+    \begin{itemize}
+           \item Sample of dismissed workers approaching the court
+           \item \~1909 workers, May 2017 - August 2018
+          % \item Information treatment
+           \item Surveys (2 weeks, 2 months) + matched admin records
+       \end{itemize}
+       \end{itemize}
+\end{frame}
+
+%\begin{frame}
+%    \textbf{Outcomes}
+%       \begin{itemize}
+%           \item For phases 1 and 2, We use administrative records of the court to trace case outcomes through December 2018
+%          \ For phase 3, outcomes as of August 2019 (at least 11 months)
+%           \item In phase 3, we conduct surveys before [and after] treatments to measure expectations (and other variables)
+%       \end{itemize}
+
+%\end{frame}
+
+\begin{frame}{Design}{}
+\vspace{-.5in}
+   \textbf{Randomization:} At the case level (Phase 1) or the subcourt-day level (Phase 2), or the day level (Phase 3), we randomly assign parties to one of two conditions:
+        
+        \begin{enumerate}
+            \item Information from a "Calculator" with a range of predicted outcomes based on the characteristics of their case (e.g., wage and tenure). 
+            \item A control condition with business as usual (or very basic information in Phase 3).
+        \end{enumerate}
+                \vspace{2mm}
+                
+     \textbf{Outcomes}
+     \begin{itemize}
+          \item For phases 1 and 2, We use administrative records of the court to trace case outcomes through January / July 2020, respectively.
+         \item For phase 3, outcomes as of August 2019 (at least 11 months)
+               
+    \end{itemize}
+ 
+\end{frame}
+
+
+
+%\section{Results}
+
+\begin{frame}{Experiment: provide information to reduce information asymmetries and de-bias parties}
+
+    Given the environment of low information, misaligned incentives, overconfidence, and possible agency issues...
+        \vspace{0.1in}
+        
+    \begin{itemize}
+        \item \textbf{``Calculator'' Treatment:} provide (objective) statistical information that could help ''de-bias'' the plaintiff's expectations and lead to more settlement.
+          \begin{itemize}
+              \item Based on ML models using data from 2500 concluded cases in Phase 1 and 5000 cases in Phase 2 and 3.
+              \item Probability and amount collected conditional on winning
+              \item Unbiased predictions, on average (out of sample tests -- good fit)
+              \item Explained to parties that the predictions represented averages for concluded cases similar to theirs.
+          \end{itemize}
+        \vspace{0.1in}
+        \pause
+        \item \textcolor{gray}{Treatment 2 (Phase 1 only): Conciliator Face-to-face meeting with a conciliator.}
+        \vspace{0.1in}
+        \item \textbf{Take-up} of treatment in Phases 1 and 2 around 70 \%. Will show ITT results.
+           \vspace{0.1in}
+        \item \textbf{Outcomes:} Settlement, welfare of the plaintiff (more on this later) 
+    \end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Calculator treatment, Phase I}
+
+    \begin{figure}
+    \label{calc_template}
+    \begin{center}
+     \vspace{-1cm}    \includegraphics[width=0.5\textwidth]{paper/Figuras/calctreat_p1.pdf}
+   \end{center}
+  
+\end{figure}
+\end{frame}
+
+\begin{frame}{Calculator treatment, Phase II}
+\begin{figure}[H]
+    \caption{Calculator Treatment Format (example) - Phase 2}
+    \label{calc_template_p2}
+    \begin{center}
+        \begin{subfigure}{0.35\textwidth}    
+        \caption{Plaintiff}
+             \centering
+             \includegraphics[width=1\textwidth]{paper/Figuras/calctreat_p2_act.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.35\textwidth}
+     \caption{Defendant}
+     \centering
+         \includegraphics[width=1\textwidth]{paper/Figuras/calctreat_p2_dem.pdf}
+      \end{subfigure}
+        \end{center}
+        \end{figure}
+%    \begin{figure}[H]
+%    \label{calc_template}
+%    \begin{center}
+%       \vspace{-1cm}    \includegraphics[width=1.1\textwidth]{presentations/Calculadora_II.pdf}
+%        \end{center}
+%\end{figure}
+\end{frame}
+
+\section{Experimental Results}
+
+
+\begin{frame}{Main Results}
+\label{frame_Main_Results}
+The results across the three phases are very consistent. In phase 1/2:
+    \begin{enumerate}
+        \item We find that \textbf{\textit{same day} settlement increases by 4.4 - 5.2 pp} for calculator 
+        \begin{itemize}
+            \item 6\% (11\%) of the Phase I (Phase II) control group settles on the day; The higher settlement rate in Phase II reflects the selection of first hearings.
+               	\hyperlink{frame_Table3A}{\beamerbutton{Basic}}
+               	 \end{itemize}
+        \vspace{2mm}
+    \pause
+    \label{frame_Main_Resultsb}
+        \item Settlement is 15 - 16 pp more likely \textit{in the control group} when the employee is present.
+          \vspace{2mm}
+        \item The \textbf{treatment effect} is much stronger when the worker is present.
+            \begin{itemize}
+                \item The calculator effect is significant only when the employee is present, when it has a 14 pp effect. 
+                %\item The conciliator treatment (Phase I) is also 16 pp stronger when the employee is present.
+        	\hyperlink{frame_Table3B}{\beamerbutton{EmpPres}}
+            \end{itemize}
+        \pause
+          \label{frame_Main_Resultsc}
+            \item There is an increase in the percentage of cases settled in all three groups over time. 
+         \begin{itemize}
+             \item The calculator treatment effect does not change significantly over time.
+             \item The effect of the employee being present on the day becomes insignificant over time. 
+	\hyperlink{frame_Table3C}{\beamerbutton{LR Outcomes}}
+         \end{itemize}
+    
+    \end{enumerate}
+ 
+  \end{frame}
+ 
+ \begin{frame}{Phase 3 outcomes}
+
+    \label{frame_Main_Resultse}
+    The effects are similar in phase 3, where we administer treatment before the plaintiff has a lawyer.
+    \begin{itemize}
+        \item Settlement 11 to 28 months after the worker approached the court
+        \item The magnitude here is difficult to compare with Phase 1/2, but note that (.062/.51 = .12)
+    \end{itemize}
+    \hyperlink{frame_Table3D}{\beamerbutton{Phase3}}
+ \end{frame}
+ 
+ \begin{frame}{Main Results: Private vs. Public lawyers}
+ The interaction of treatment and employee present comes entirely from cases with a private lawyer.  
+     \begin{table}[H]
+    \caption{Treatment Effects conditional on type of lawyer}
+    \label{te_bylawyer}
+    \begin{center}
+     \scriptsize{\input{./paper/Tables/by_lawyerITT.tex}}
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
+ \vspace{.2in} 
+ \end{frame}
+ 
+ \begin{frame}{Phase 3: Expectations updating}
+ In Phase 3, we asked about expectations both before and after providing the calculator information
+     \begin{table}[H]
+    \label{calc_template}
+    \begin{center}
+        \scriptsize{\input{./paper/Tables/update.tex}}
+        \end{center}
+\end{table}
+Prior to receiving the information, dismissed workers thought their probability of winning was 89\%, on average.
+ \end{frame}
+ 
+ %\begin{frame}{Phase 3: Results}
+ %Settlement 11 to 28 months after the worker approached the court
+ %    \begin{figure}[H]
+ %   \label{calc_template}
+ %   \begin{center}
+ %       \includegraphics[width=0.75\textwidth]{paper/Figuras/Phase3.png}
+%        \end{center}
+%\end{figure}
+%The magnitude here is difficult to compare with Phase 1/2, but note that (.061/.51 = .12)
+% \end{frame}
+ 
+ \begin{frame}{Endogeneity of the presence of the plaintiff, Phases 1 and 2}
+ \label{frame_Control_Function}
+    Treatment is random both when the plaintiff is present at the hearing and when she is not.
+    \vspace{.1in}
+   But the endogeneity of the plaintiff's presence creates an external validity issue: Would the calculator have had the same effect in the cases where the employee was not present?
+   \vspace{.1in}
+   We note that:
+   \begin{itemize}
+    \item the employee's presence in the control group is not related to settlement over the longer term;
+       \item a large share of cases where the plaintiff was not present settle after the day of the intervention;
+       \item the employee presence matters only in cases with private lawyers; and
+       \item plaintiffs using private lawyers are less informed about their own case.
+    %   \hyperlink{frame_Figure2}{\beamerbutton{Case Knowledge}}
+   \end{itemize}
+   \pause
+   These suggest that agency issues are driving the finding that treatment is effective only when the employee is present. Private lawyers, in particular, use their informational advantage.
+   \\
+   \vspace{.1in}
+    \pause
+   We also implement a control function approach. The plaintiff presence is predicted by the time of day of the hearing (which is randomly assigned to cases).  \hyperlink{frame_Table3E}{\beamerbutton{Control Function}}
+\end{frame}
+
+\section{Plaintiff welfare effects}
+\begin{frame}{A simple framework}
+    In Appendix B of the paper, there is a simple framework that motivates:
+    \begin{itemize}
+        \item Why settlement might be beneficial
+        \item Why the plaintiff and her lawyer may disagree on whether to accept a settlement.
+    \end{itemize}
+    In the interest of time, I'll just say here that we expect that the plaintiff and their lawyer differ in two important respects:
+    \begin{itemize}
+        \item Lawyers handle many cases simultaneously, and hence can diversify the risk of any single case.
+        \item Lawyers have higher incomes and lower discount rates
+    \end{itemize}. 
+    \vspace{2mm}
+    
+    Both of these will lead lawyers and their clients to sometimes differ in the choice between uncertain future payoffs (from judgment) and a certain settlement today.
+    \begin{itemize}
+        \item Therefore, lawyers may prefer to proceed to judgment when plaintiffs prefer to settle
+        \item This provides motivation for withholding the information from clients
+    \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}{Do plaintiffs benefit from settlements?}
+    The divergence in incentives between the plaintiff and her lawyer raise the question whether providing information directly to the plaintiff  - our only treatment effect - makes the plaintiff better off.  We think this is a key question. How can we test this?
+    \begin{itemize}
+        \item Compare the distribution of outcomes in the treatment and control groups
+    \end{itemize}
+    \vspace{2mm}
+    
+    We collected outcomes in December 2019 / January 2020 (phase 1) and July 2020 (phase 2). By this time, almost 90\% of cases were resolved.
+    
+\end{frame}
+
+\begin{frame}{Distribution of case outcomes}
+     \begin{table}[H]
+    \label{outcomes}
+    \begin{center}
+     \scriptsize{\input{paper/Tables/Table5_December2018Followup}}
+        \end{center}
+\end{table}
+Treatment appears to shift cases from "court ruling without payment" to settlement.
+ \end{frame}
+ 
+ \begin{frame}{Plaintiff welfare}
+    However, there are two caveats:
+    \begin{enumerate}
+        \item 12\% of cases are still unresolved. This is balanced across treatment, but...
+        \item Treatment may have intensive as well as extensive effects, for example shifting the type of case that settles. 
+    \end{enumerate}
+ \end{frame}
+ 
+ \begin{frame}{Expected outcomes from unresolved cases}
+ On the first point, the unresolved cases appear stronger in the treatment group than in the control group.
+        \begin{figure}[H]
+    \label{DurationFig}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{paper/Figuras/Calculator_CourtWin_Unresolved}
+        \end{center}
+\end{figure}
+\end{frame}
+ 
+ \begin{frame}{NPV of amount awarded}
+ We discount the awards (Note: not recoveries) back to the date of filing. We use the calculator predictions for court judgment for the unresolved cases.
+     \begin{table}[H]
+    \caption{Treatment effects on NPV of amount awarded}
+    \label{te_bylawyer}
+    \begin{center}
+     \scriptsize{\input{paper/Tables/ITTNPV_pres.tex}}
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
+ 
+ \end{frame}
+
+ \begin{frame}{NPV of amount awarded}
+ \label{frame_NPV}
+ Why the difference between IHS and levels?
+        \begin{figure}[H]
+    \label{DurationFig}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{paper/Figuras/OutcomesByTreatment_P2}
+        \end{center}
+\end{figure}
+Treatment appears to (so far) have had two effects: a large \# of cases settled rather than lost; a small \# of high-value court awards forgone for more modest settlements. 
+\pause
+    The patterns suggest that the parties were not confused by the treatment, or influenced to take suboptimal decisions. 
+   
+   \hyperlink{frame_FigureC6}{\beamerbutton{CalculatorSettlementRatio}} 
+   \hyperlink{frame_Figure5}{\beamerbutton{SettlementSelection}} 
+
+\end{frame}
+
+
+
+
+ 
+%\begin{frame}{Treatment-control comparison}
+%    \begin{table}[H]
+%    \caption{Comparison of Settlement Amounts}
+%    \label{match_table}
+%    \begin{subtable}{0.9\textwidth}
+%      \centering
+%        \caption{Settlement amount by treatment}
+%        \scriptsize{\input{./presentations/settlement_conciliator.tex}}
+%    \end{subtable}%
+%    \end{table}
+% \end{frame}
+ 
+
+ \begin{frame}{Wellbeing, Phase 3, 2-month survey}
+ At two months, we asked participants happiness and other welfare questions
+    \begin{table}[H]
+    \label{calc_template}
+    \begin{center}
+        \scriptsize{\input{./paper/Tables/welfare_reg.tex}}
+        \end{center}
+\end{table}
+"[T]imeliness is next to godliness in the operation of unemployment compensation adjudicatory processes.” (Mashaw, Mich Law Review 1996)
+
+ \end{frame}
+
+%\section*{Future (ongoing) work}
+
+%\begin{frame}{Private lawyer agency}
+%  \begin{itemize}
+  
+%  \item Evidence on inflation of initial claim: Private lawyers ask for much more in initial suit, conditioning for observables. But they they have no higher gross outcomes than public lawyers implying plaintiffs are worse off, on average. 
+%    \vspace{0.05in}
+%  \item  More recent intervention providing information about the public lawyer's office to dismissed workers coming to the court prior to filing a suit
+%\vspace{0.05in}
+%  \item Working on a "lawyer quality index". This is challenging, because outcomes are quite variant in the matching of plaintiffs to lawyers is endogenous. 
+%  \end{itemize}
+
+%\end{frame}
+
+
+\section*{Conclusions}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+  \item \alert{Stylized facts:} Data from case files show:
+  \begin{itemize}
+      \item Recovery rates are low
+      \item Typical case duration is long
+      \item Settlement rates are low
+  \end{itemize}  
+    \vspace{0.05in}
+    \pause
+  \item  \alert{Bargaining context:} 
+  \begin{itemize}
+      \item Overconfidence
+      \item Plaintiffs lack knowledge about case
+      \item At least three parties are relevant, not just plaintiff-defendant. 
+      \begin{itemize}
+          \item Since the defendant almost never attends the hearing, we cannot say anything about agency on the defendant side. 
+      \end{itemize}
+  \end{itemize}
+    \vspace{2mm}
+    \pause
+  \item \alert{Experiment:} The Calculator treatment:
+\begin{itemize} 
+    \item increases settlement rates in on-going cases by around 90 percent.
+    \item but \alert{only when worker present}.
+    \item and the treatment effect remains constant after the day.
+    \item increases the settlement rate by 6 pp (12\% of cases otherwise unsettled) in pre-trial administering
+\end{itemize}
+
+  \end{itemize}
+  \vspace{2mm}
+  \pause
+Our results indicate that the plaintiffs retain control of decision-making when they are fully informed. 
+% \begin{itemize}
+%     \item The results suggest the lawyers retain influence over decision-making by controlling the flow of information to clients. 
+% \end{itemize}
+ \end{frame}
+ 
+ \begin{frame}{Effect on Policy}
+ \vspace{-1in}
+     "…what looking we were able to do generated no evidence that the results of an RCT in the US legal profession were actually used, in the sense that a program or policy changed because of the study's results." (\textit{Greiner and Matthews, 2016})
+
+\vspace{2mm}
+ Mexico passed a new labor in 2019 (new NAFTA); Our work with the MCLC has been incorporated into that law (through Joyce). 
+\end{frame}
+
+% Placing a * after \section means it will not show in the
+% outline or table of contents.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                   EXTRAS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\appendix
+\section{Appendix}
+
+\begin{frame}{}
+\centering
+    \textbf{APPENDIX}
+\end{frame}
+
+\begin{frame}{Table3A}
+\label{frame_Table3A}
+\begin{flushright}
+	\hyperlink{frame_Main_Results}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\begin{center}
+\includegraphics[scale=0.25]{paper/Tables/Table_3a_210517.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Table3B}
+\label{frame_Table3B}
+\begin{flushright}
+	\hyperlink{frame_Main_Resultsb}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\includegraphics[scale=0.25]{paper/Tables/Table_3b_210517.jpg}
+\end{frame}
+
+\begin{frame}{Table3C}
+\label{frame_Table3C}
+\begin{flushright}
+	\hyperlink{frame_Main_Resultsc}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\includegraphics[scale=0.25]{paper/Tables/Table_3c_210517.jpg}
+\end{frame}
+
+\begin{frame}{Table3D}
+\label{frame_Table3D}
+\begin{flushright}
+	\hyperlink{frame_Main_Resultse}{\beamerreturnbutton{Back}} 
+	\end{flushright}
+\centering
+\includegraphics[scale=0.17]{paper/Tables/Table_3d_210517.jpg}
+\end{frame}
+
+\begin{frame}{Table3E}
+\label{frame_Table3E}
+\begin{flushright}
+	\hyperlink{frame_Control_Function}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\includegraphics[scale=0.25]{paper/Tables/Table_3e_210517.jpg}
+\end{frame}
+
+\begin{frame}{Table3}
+\label{frame_Table3}
+\begin{flushright}
+	\hyperlink{frame_Main_Resultse}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\includegraphics[scale=0.25]{paper/Tables/Table_3_210517.jpg}
+\end{frame}
+
+\begin{frame}{SettlementSelection}
+\label{frame_Figure5}
+\begin{flushright}
+	\hyperlink{frame_NPV}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\vspace{-1cm}\includegraphics[scale=0.5]{paper/Figuras/CalculatorVSettlements.pdf}
+\end{frame}
+
+\begin{frame}{CalculatorSettlementRatio}
+\label{frame_FigureC6}
+\begin{flushright}
+	\hyperlink{frame_NPV}{\beamerreturnbutton{Back}}
+	\end{flushright}
+\centering
+\vspace{-1cm}\includegraphics[scale=0.5]{paper/Figuras/kdensityRatio.pdf}
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% All of the following is optional and typically not needed. 
+
+
+
+\begin{frame}{Summary Statistics}
+  \begin{table}[H]
+    \label{Sum_Stats_outcomes}
+    \begin{center}
+    \begin{adjustbox}{width=0.9\textheight}
+       \tiny{\input{\folder/SS.tex}}
+       \end{adjustbox}
+    \end{center}
+\end{table}
+\end{frame}
+
+
+
+\begin{frame}{Compliance rate}
+ \begin{table}[H]
+  \resizebox{0.9\textwidth}{!}{\begin{minipage}{\textwidth}
+\label{Table_compliance}
+\begin{center}
+\scriptsize{\input{\folder/Compliance.tex}}
+\end{center}
+\end{minipage}}
+\end{table}
+ \footnotesize
+\textit{Notes:} 
+The number of cases assigned to the 3 different groups is very similar, and is close to 7 per day on average. The compliance with treatment rate is similar for both treatments and in the range of 75\%.
+\end{frame}
+
+
+
+\begin{frame}{Conciliation over time}
+    \begin{figure}[H]
+    \label{Figure_dynamicsConciliation}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{con_overtime.pdf}
+        \end{center}
+        {\footnotesize \textit{Notes: } Conciliation over time in HD database and pilot database.}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Baseline expectations for plaintiffs with public and private lawyers}
+\begin{table}[H]
+    \label{Table_expectations}
+    \begin{center}
+       \tiny{\input{\folder/SS_A.tex}}
+     \end{center}
+\end{table}
+    \footnotesize    
+    \textit{Notes:} 
+    Summary statistics of parties' beliefs. We show mean and standard deviation for the whole sample, \& dividing by type of employee's lawyer.
+\end{frame}
+
+
+\begin{frame}{Amount asked, won and probability of winning}
+    \begin{table}[H]
+    \caption{Amount asked (log), amount won (log), and probability of winning - Historic Data}
+    \label{Table_Reg_winnings_log}
+    \begin{center}
+        \tiny{\input{\folder/TableReg1_log.tex}}
+    \end{center}
+    \footnotesize
+    \textit{Notes:}
+    Regression of amounts (in log pesos) asked (in log pesos) asked/won ratio and prob. of winning, by outcome (only basic variables included).
+\end{table}
+\end{frame}
+
+
+\section{Conceptual framework}
+
+\begin{frame}{Conceptual framework}
+Construct a simple framework around:
+\begin{itemize}
+\item overconfidence of both parties
+\item long durations with high discount rates
+\item uncertainty over both award and ability to collect. 
+\end{itemize}
+\vspace{0.1in}
+
+Four parties: Plaintiff, plaintiff\’s lawyer, defendant, \textit{defendant\'s lawyer}.
+\vspace{0.1in}
+
+Plaintiff hires lawyer to file claim G(X) with expected payoff P ${[0, \overline{P)}}$, made by the defendant to the plaintiff, after case duration D. 
+\vspace{0.2in}
+
+
+Focus first on plaintiff and defendant. Denote plaintiff's expectations as $({D_p, P_p})$ and defendant's expectations as $({D_d, P_d})$.
+
+\vspace{0.1in}
+\textbf{Define} $\rho_i$ as the discount rate of player i \in{(p,d,a)} and  $\delta_i$ as the corresponding discount factor.
+    
+\end{frame}
+
+\begin{frame}{Conceptual framework}
+
+There is uncertainty over the amount and timing of the award. Ignoring for now that uncertainty, the present values of award / payment are:
+
+       \vspace{0.1in}
+
+ ${\delta_p^{D_p}}{P_p}$ 
+       \vspace{0.1in}
+
+and  ${\delta_d^{D_d}}{P_d}$ 
+       \vspace{0.1in}
+
+The parties will have an incentive to settle when:
+       \vspace{0.1in}
+
+${\delta_p^{D_p}}{P_p} <$  ${\delta_d^{D_d}}{P_d}$.
+
+       \vspace{0.1in}
+That is, when the plaintiff discounts the future more than the defendant. \textit{(Evidence coming, but we see this as very reasonable.)}
+
+\vspace{0.1in}
+When there is no overconfidence and ${\delta_p}<$ ${\delta_d}$, we should see immediate settlement. \textit{(Note that the lawyer’s discount factor will also matter here.)}
+	\end{frame}
+
+\begin{frame}{Conceptual framework}
+
+A few issues to highlight:
+
+\begin{itemize}
+         \item Overconfidence of the parties can eliminate the contract zone even if plaintiffs have higher discount rates. (\textit{Think calculator treatment)}
+\vspace{0.1in}
+	\item Settlement may not occur even with a non-empty contract zone. (\textit{Think conciliator treatment)}
+\vspace{0.1in}
+	\item If plaintiff and/or defendant are risk averse, the contract zone will be larger.
+ \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Contract zone and over-optimism}
+
+    \begin{figure}[H]
+    \label{calc_template}
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{presentations/ContractZone.pdf}
+        \end{center}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Divergence of plaintiff/lawyer incentives}
+Finally, consider the potential for a divergence in the incentives of the plaintiff’s attorney and the plaintiff. Focus private attorneys - around 85\% of our cases.
+
+\vspace{0.2in}
+Same idea: Bargaining between the plaintiff's lawyer and the defendant. The plaintiff's lawyer typically receives 30\% of any award, with a present value of ${\delta_a^{D_a}}{P_a}$.
+
+\vspace{0.2in}
+Ignoring for now the opportunity cost of time, a non-empty contract zone in the game between the plaintiff's attorney and the defendant if: ${\delta_a^{D_a}}{P_a} <$  ${\delta_d^{D_d}}{P_d}$ 
+
+\vspace{0.2in}
+
+The plaintiff will want to settle and her attorney will not if: 
+
+\vspace{0.1in}
+
+${\delta_p^{D_p}}{P_p} <$  ${\delta_d^{D_d}}{P_d} <$ ${\delta_a^{D_a}}{P_a}$  
+
+\vspace{0.1in}
+Plausible if: ${\delta_p}<$ ${\delta_d}$\leq${\delta_a}$.
+
+\vspace{0.1in}
+	Plaintiff is risk averse and her lawyer is not
+
+\end{frame}
+
+
+
+\begin{frame}{Divergence of plaintiff/lawyer incentives}
+    More generally, there is a potential divergence in the incentives of the plaintiff and her lawyer.
+\begin{itemize}
+    \item Different discount factors (\textit{plaintiff discount rate $>$ lawyer discount rate: plaintiff wants to settle when lawyer does not})
+    \item Different levels of optimism (\textit{plaintiff more optimistic than lawyer: lawyer wants to settle, plaintiff does not})
+    \item Different risk aversion (\textit{plaintiff risk averse, lawyer diversified across cases: plaintiff wants to settle, lawyer does not})
+    \item Differences in opportunity cost of time (higher for lawyer (?): \textit{lawyer wants to settle, plaintiff does not})
+\vspace{0.1in}
+
+\end{itemize}
+
+The lawyer may also be concerned with reputation effects, so perhaps cannot admit to being less optimistic on outcomes. 
+
+
+\end{frame}
+
+
+\begin{frame}{Predictions}
+Several predictions from this framework:
+\vspace{0.1in}
+\begin{itemize}
+
+  \item If plaintiffs have higher discount rates than defendants, then an immediate settlement is the efficient outcome.
+  
+\vspace{0.1in}
+    \item If both parties have the same discount rate, risk aversion may still create a non-empty contract zone range.
+    
+    \begin{itemize}
+    \item However, in that case, the timing of the settlement does not affect the level of surplus generated by the settlement.
+    
+    \end{itemize}
+ \vspace{0.1in}
+    \item The preferences of the plaintiff's and her attorney may diverge if:
+    
+\begin{itemize}
+\item Degree of overconfidence differs
+\item Discount rates differ
+\item Risk aversion differs. 
+
+\end{itemize}
+\vspace{0.1in}
+All three are likely to be true (\textit{data coming}), with the first making attorney more willing to settle and the other two  making the plaintiff more willing to settle.
+\vspace{0.1in}
+Predictions:
+	\begin{itemize}
+	\item \textbf{Calculator} Will reduce overconfidence and hence increase the contract zone, to the benefit of both parties
+	\item \textbf{Conciliator} Will encourage settlement when there is a non-empty contract zone, but a breakdown in bargaining.
+\end{itemize}
+ \end{itemize}
+\end{frame}
+
+
+
+  \vspace{.1 in}
+    \item \textbf{The "Calculator":}
+        \vspace{0.05in}
+            \begin{itemize}
+                \item \textbf{Sample:} 2500 \textit{concluded} cases from sub-court 7. Random sample of all cases filed in 2011 and 2012 that were concluded by the end of 2015.
+                
+                \item \textbf{Variables:} Initial labor suit variables (e.g. wage, tenure); When the suit ended and how (settlement, drop, judgment, or expiry); compensation received by the worker.
+            \end{itemize}
+            \vspace{0.1in}
+\item \textbf{Conciliator}: Each subcourt has one conciliator; for the experiment, the MCLC assigned an additional conciliator to subcourt 7. 
+
+
+
+\begin{frame}{Experiment flowchart, Phase I}
+\begin{columns}[T]
+    \begin{column}{.6\textwidth}
+    \begin{itemize}
+        \vspace{.2in}
+        \item The experiment started on March 2, 2016 and ended on May 27, 2016.
+        \item 1103 case files intervened before hearing.
+        \vspace{0.1in}
+        \item We randomized into 3 arms (control, calculator, conciliator) with equal probabilities. 
+            \begin{itemize}
+                \item Balance tests passed in assignment and take-up sample.
+            \end{itemize}
+        \vspace{0.1in}    
+        \item Take up of the treatment was about 70\% in both arms. Take up exit survey 52\%.
+       \end{itemize} 
+    \end{column}
+    \begin{column}{.5\textwidth}
+    \begin{figure}[H]
+   \label{treatment_flowchart}
+    \includegraphics[width=0.8\textwidth]{Experiment_flowchart.png}
+\end{figure}
+\end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Public Attorney's Office}
+     \begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.55\textwidth]{presentations/image.png}
+        \end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+    %\nocitep{*}
+
+\bibliographystyle{apalike}
+\bibliography{References}
+%\printbibliography
+
+\bibliographystyle{aea}
+\bibliography{References}
+
+\end{frame}
+

@@ -1,0 +1,34 @@
+\begin{tabular}{lccccccccc}
+\toprule
+\multicolumn{1}{|r}{} & \multicolumn{9}{c}{Months after treatment} \\
+\midrule
+\multicolumn{1}{r|}{} & \multicolumn{5}{c|}{Same day settlement} & \multicolumn{1}{c|}{2 months } & \multicolumn{1}{c|}{ 5 months} & \multicolumn{1}{c|}{Long run} & Same day  \\
+\midrule
+\midrule
+\multicolumn{1}{r|}{} & \multicolumn{2}{c|}{Phase 1} & \multicolumn{2}{c|}{Phase 2} & \multicolumn{5}{c}{Phase 1/2} \\
+\midrule
+\multicolumn{1}{r|}{} & \multicolumn{5}{c|}{OLS}              & \multicolumn{3}{c|}{OLS} & CF OLS \\
+\midrule
+\midrule
+      & (1)   & (2)   & (3)   & (4)   & (5)   & (6)   & (7)   & (8)   & (9) \\
+Control (constant) & 0.060*** & 0.034*** & 0.11*** & 0.10*** & 0.094*** & 0.15*** & 0.39*** & 0.45*** & 0.034 \\
+      & (0.013) & (0.011) & (0.030) & (0.030) & (0.026) & (0.043) & (0.039) & (0.049) & (0.043) \\
+Calculator & 0.051** & 0.019 & 0.047** & 0.0077 & 0.018 & 0.0035 & -0.0069 & -0.0025 & 0.0043 \\
+      & (0.022) & (0.019) & (0.021) & (0.019) & (0.014) & (0.021) & (0.024) & (0.025) & (0.015) \\
+Emp present (EP) &       & 0.14*** &       & 0.14* & 0.14*** & 0.11** & 0.094* & 0.070 & 0.62*** \\
+      &       & (0.050) &       & (0.072) & (0.041) & (0.046) & (0.048) & (0.050) & (0.23) \\
+Calculator\#EP &       & 0.16** &       & 0.16* & 0.16*** & 0.18*** & 0.16** & 0.14** & 0.16*** \\
+      &       & (0.079) &       & (0.089) & (0.056) & (0.061) & (0.064) & (0.061) & (0.055) \\
+Control Function &       &       &       &       &       &       &       &       & -0.27** \\
+      &       &       &       &       &       &       &       &       & (0.13) \\
+      &       &       &       &       &       &       &       &       &  \\
+\midrule
+Observations & 716   & 716   & 1092  & 1092  & 1808  & 1808  & 1808  & 1808  & 1808 \\
+R-squared & 0.0083 & 0.12  & 0.051 & 0.11  & 0.13  & 0.12  & 0.10  & 0.083 & 0.136 \\
+Court dummies  & NO    & NO    & YES   & YES   & YES   & YES   & YES   & YES   & YES \\
+Dep. var. Mean & \multicolumn{2}{c}{0.085} & \multicolumn{2}{c}{0.20} & 0.16  & 0.20  & 0.34  & 0.45  & 0.16 \\
+Interaction var. Mean &       & 0.19  &       &       & \multicolumn{5}{c}{0.19} \\
+\bottomrule
+\bottomrule
+\end{tabular}%
+

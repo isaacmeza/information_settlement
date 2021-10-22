@@ -1,0 +1,14 @@
+
+# Data files
+/paper/Raw/
+/paper/Raw/**
+
+/paper/DB/
+/paper/DB/**
+
+/scaleup/Raw/
+/scaleup/Raw/**
+
+/scaleup/DB/
+/scaleup/DB/**
+
