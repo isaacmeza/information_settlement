@@ -83,8 +83,8 @@ geocoded_sp <- st_as_sf(geocoded ,coords = c("lon","lat"),crs=4326, sf_column_na
 jlca <- st_sf(
     folio = "0000-0000" ,
     demandado = 0,
-    addresses = "Av. Dr. Río de la Loza 68, Doctores, 06720 Ciudad de México, CDMX, Mexico",
-    geoAddress= "Av. Dr. Río de la Loza 68, Doctores, 06720 Ciudad de México, CDMX, Mexico",
+    addresses = "Av. Dr. R?o de la Loza 68, Doctores, 06720 Ciudad de M?xico, CDMX, Mexico",
+    geoAddress= "Av. Dr. R?o de la Loza 68, Doctores, 06720 Ciudad de M?xico, CDMX, Mexico",
     geometry = st_sfc(st_point(c(-99.14541650000001, 19.4245109)))
   ) %>% 
   st_set_crs(4326) %>% # because the point was taken from Google Maps coordinates
