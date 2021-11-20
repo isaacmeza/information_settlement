@@ -489,20 +489,51 @@ estadd scalar pval_moulton_int = `pval_moulton_int'
 
 *-------------------------------------------------------------------------------
 
+preserve
 *Probit (FS)
-probit p_actor i.altT i.junta time_hr2-time_hr8 i.anioControl i.numActores i.junta i.phase, r cluster(fecha)
-cap drop xb gen_resid_pr8
+qui probit p_actor i.altT time_hr2-time_hr8 i.anioControl i.numActores i.junta i.phase
+cap drop xb
 predict xb, xb
-
 *Generalized residuals
-gen gen_resid_pr8 = cond(p_actor == 1, normalden(xb)/normal(xb), -normalden(xb)/(1-normal(xb)))	
+gen gen_resid_pr = cond(p_actor == 1, normalden(xb)/normal(xb), -normalden(xb)/(1-normal(xb)))	
 
-*Probit - CF
-ritest altT _b[altT] _b[c.altT#c.p_actor], samplingsourcefile("./_aux/samplePooled2.dta") samplingmatchvar(junta exp anio) reps(10000) ///
-: reg seconcilio c.altT##c.p_actor i.anioControl i.numActores i.junta i.phase gen_resid_pr8, robust  cluster(fecha)
-matrix pvalues=r(p)
-local pvalNoInteract = pvalues[1,1]
-local pvalInteract = pvalues[1,2]
+*CF
+*Probit - Interaction
+qui reg seconcilio altT p_actor interactT  i.anioControl i.numActores i.junta i.phase gen_resid_p , robust
+local pval_r=r(table)[4,1]
+local pval_r_int=r(table)[4,3]
+local tau1=_b[altT]
+local tau2=_b[interactT]
+
+drop altT
+merge 1:1 junta exp anio using "./_aux/ritest.dta", nogen keepusing(altT*)
+drop altT
+local rank1=0
+local rank2=0
+local M=0
+*Randomization Inference (Fisher)
+foreach var of varlist altT* {
+	cap drop interactT
+	qui gen interactT=`var'*p_actor
+	qui probit p_actor `var' time_hr2-time_hr8 i.anioControl i.numActores i.junta i.phase
+	cap drop xb
+	qui predict xb, xb
+	*Generalized residuals
+	cap drop gen_resid_pr
+	qui gen gen_resid_pr = cond(p_actor == 1, normalden(xb)/normal(xb), -normalden(xb)/(1-normal(xb)))	
+	*CF : Probit - Interaction
+	qui reg seconcilio `var' p_actor interactT  i.anioControl i.numActores i.junta i.phase gen_resid_p
+	if abs(_b[`var'])>=abs(`tau1') {
+		local rank1=`rank1'+1
+	}
+	if abs(_b[interactT])>=abs(`tau2')  {
+		local rank2=`rank2'+1
+	}
+	local M=`M'+1
+}
+local pval_ri=`rank1'/`M'
+local pval_ri_int=`rank2'/`M'
+restore
 
 
 *Probit (FS)
