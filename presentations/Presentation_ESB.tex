@@ -50,7 +50,7 @@
 \captionsetup{position=top}
 \captionsetup[subfigure]{justification=centering}
 
-
+\usepackage{colortbl}
 
 \usepackage{epstopdf}
 \epstopdfDeclareGraphicsRule{.tiff}{png}{.png}{convert #1 \OutputFile}
@@ -289,9 +289,9 @@ Based on a survey to 2 million formal sector workers we implemented with IMSS:
 \begin{itemize}
     \item Mexico's law requires severance payment when a worker gets fired. But more than 50\% of fired workers don't get it.
     \vspace{.1in}
-    \item Of those that did not get it, only 86\% sue. 
+    \item Of those that did not get it, \colorbox{yellow}{only} 86\% sue. 
     \vspace{.1in}
-    \item They say this is because:
+    \item \colorbox{yellow}{They say this is because}:
     \begin{itemize}
         \item It is useless to sue (30\%)
         \item Don't know any lawyers (26\%)
@@ -310,10 +310,10 @@ Based on a survey to 2 million formal sector workers we implemented with IMSS:
 
 \begin{frame}{Case Flow}
     \begin{figure}[H]
-    \label{calc_template}
-    Three phases of the experiment
+    \label{case_flow}
+    \caption*{Three phases of the experiment}
     \begin{center}
-        \includegraphics[width=0.85\textwidth]{paper/Figuras/Stylized Diagram of Case Origination.pdf}
+        \includegraphics[width=0.85\textwidth]{paper/Figuras/Stylized_Diagram_of_Case_Origination.pdf}
         \end{center}
 \end{figure}
 \end{frame}
@@ -343,10 +343,11 @@ The majority (90\%) are unfair dismissal cases filed by individual workers suing
 \pause
 \vspace{.15in}
 
-Courts are a disciplining device for a bargaining game between the plaintiff and defendant. 
+Courts are a device for a bargaining game between the plaintiff and defendant. 
    \begin{itemize}
        \item Most cases reached a bargained settlement. 
-       \item However the 55\% settlement rate in the MCLC is lower than rates for similar cases of 70\% in Australia, 80\% in the U.S. 90\ in Sweden, etc.  
+       \item However the 55\% settlement rate in the MCLC is lower than rates for similar cases of 70\% in Australia, 80\% in the U.S. 90\% in Sweden, etc.  
+       %\item Can act as a trusted mediator and decrease asymmetric information if it helps reveal info. Plus, going to court itself can be a signal that could reveal information. 
    \end{itemize}
  \end{frame}
  
@@ -354,7 +355,7 @@ Courts are a disciplining device for a bargaining game between the plaintiff and
 
  \begin{frame}{Context}
     
-The law does not work so well for workers:
+The law does not work so well for workers in practice:
     \begin{itemize}
         \item Workers often at least partly informal (Kumler et al. (2020))
         \item Employers and lawyers know some tricks (e.g. resignation letter)
@@ -367,7 +368,7 @@ The process does not work so well, either:
 \begin{itemize}
         \item Workers are almost always first-time users of the court; median plaintiff is a lower-wage worker with modest schooling level. 
         \item Many lawyers are ``informal'', capturing clients as the workers approach the court.
-        \item anecdotal evidence of corruption, particularly in enforcement, but also in side deals between plaintiff lawyers and defendants.
+        \item Anecdotal evidence of corruption,including side deals between plaintiff lawyers and defendants, and lawyers trying to convince lawyers with losing cases to sue.
         \item Little information about lawyer quality.
     \end{itemize}
 
@@ -474,15 +475,18 @@ The process does not work so well, either:
 
 \begin{frame}{Context}
 
-The plaintiff's problem is therefore characterized by asymmetric information and agency. Our experiment will provide evidence on three questions: 
+The plaintiff's problem is embedded in asymmetric information (e.g. unknown threat points) and potentially agency with her lawyer. 
+
+\vspace{.1in}
+I will not test any particular bargaining model as we do not control the environment enough. Our experiment will provide evidence on three questions: 
 
 \vspace{5mm}
 \begin{enumerate}
-      \item Does providing information on expected outcomes increase settlement rates, either by reducing information asymmetries or by reducing overconfidence? 
+      \item Does providing information on expected outcomes increase settlement rates? (by reducing information asymmetries or  overconfidence) 
       \vspace{2mm}
       \item Is there evidence that agency issues are important in the bargaining process?
       \vspace{2mm}
-      \item Is the welfare of the parties, and the plaintiffs in particular, improved by the provision of information? 
+      \item Is the plaintiff better off by the provision of information? 
   \end{enumerate}
  
  
@@ -491,7 +495,7 @@ The plaintiff's problem is therefore characterized by asymmetric information and
 \section{Data}
 
 \begin{frame}{Data}
-We begin by digitizing data from the initial filing of more than 5000 completed cases.
+Digitized \textbf{``historical data''} from the initial filing of more than 5000 completed cases.
 \vspace{2mm}
         \begin{itemize}
             \item Characteristics of the worker: wage, tenure, claims, etc.
@@ -506,7 +510,7 @@ We begin by digitizing data from the initial filing of more than 5000 completed 
     \end{enumerate} 
 \pause
 \vspace{2mm}
-We also use survey data from phases 1 and 3 of the experiment:
+We also use \textbf{survey data} from phases 1 and 3 of the experiment:
             \begin{itemize}
                 \item Phase 1: Baseline survey of parties in ongoing cases.
                 \item Phase 3: Baseline, 2 week, and 2-month follow-up surveys of dismissed workers prior to filing a case.
@@ -536,13 +540,13 @@ We also use survey data from phases 1 and 3 of the experiment:
 We begin by describing a few stylized facts based on data from the case files and surveys. 
 \vspace{0.2in}
     \begin{itemize}
-        \item \textbf{Fact 1 (Awards are low):} The amount recovered is a small percentage of the amount asked for, and is even less than what the law mandates ( $<1/2$ collect).
+        \item \textbf{Fact 1 (Awards are low):} The amount recovered is a small percentage of the amount asked for, and less than what the law mandates ( $<1/2$ collect).
             
     \end{itemize}
     \begin{figure}[H]
     \label{claimsvsoutcomes}
     \begin{center}
-        \includegraphics[width=0.6\textwidth]{Amountasked.tiff}
+        \includegraphics[width=0.6\textwidth]{paper/Figuras/Amtasked.png}
         \end{center}
     \end{figure}    
 \end{frame}
@@ -600,6 +604,10 @@ We begin by describing a few stylized facts based on data from the case files an
     \begin{center}
         \includegraphics[width=0.6\textwidth]{paper/Figuras/caseending_overtime.pdf}
         \end{center}
+        
+        \begin{itemize}
+            \item About 10\% to court ruling, 20\% drop.
+        \end{itemize}
 \end{figure}
 \end{frame}
 
@@ -634,6 +642,14 @@ We begin by describing a few stylized facts based on data from the case files an
 \end{frame}
  
  \begin{frame}{Plaintiff knowledge of law and own claims}
+ 
+ Knowledge about their rights and what is in their own lawsuit is low.
+ 
+ \vspace{.1in}
+ \begin{itemize}
+     \item \textbf{Fact 5: those with private lawyers are even less informed} (controlling for observable characteristics)
+ \end{itemize}
+
         \begin{figure}[H]
     \label{DurationFig}
     \begin{center}
@@ -645,10 +661,11 @@ We begin by describing a few stylized facts based on data from the case files an
  
 \begin{frame}{Public vs. private lawyers}
     \begin{itemize}
-        \item \textbf{Fact 5 (Public and private lawyers):} Private lawyers file larger claims, but recover the same, on average, as public lawyers. 
-         \vspace{1mm}
+        \item \textbf{Fact 6 (Public and private lawyers):} Private lawyers file larger claims, but recover the same, on average, as public lawyers. 
+         \vspace{2mm}
       \begin{itemize}
           \item Plaintiff receives even less after accounting for fees.
+          \item Accounting for fees 40\% of those with private lawyers lost money.
       \end{itemize}  
     \end{itemize}
     \vspace{2mm}
@@ -724,7 +741,7 @@ The experiment was conducted with parties in ongoing cases in three phases:
                 
      \textbf{Outcomes}
      \begin{itemize}
-          \item For phases 1 and 2, We use administrative records of the court to trace case outcomes through January / July 2020, respectively.
+          \item For phases 1 and 2, We use administrative records of the court to trace case outcomes through January / July 2020, respectively (4 yrs).
          \item For phase 3, outcomes as of August 2019 (at least 11 months)
                
     \end{itemize}
@@ -744,14 +761,18 @@ The experiment was conducted with parties in ongoing cases in three phases:
         \item \textbf{``Calculator'' Treatment:} provide (objective) statistical information that could help ``de-bias'' the plaintiff's expectations and lead to more settlement.
           \begin{itemize}
               \item Based on ML models using data from 2500 concluded cases in Phase 1 and 5000 cases in Phase 2 and 3.
-              \item Probability and amount collected conditional on winning
-              \item Unbiased predictions, on average (out of sample tests -- good fit)
-              \item Explained to parties that the predictions represented averages for concluded cases similar to theirs.
+              \item \textbf{Probability and amount collected} conditional on winning
+              
+              \begin{itemize}
+                  \item Unbiased predictions, on average (out of sample tests -- good fit)
+                  \item Explained to parties that the predictions represented averages for concluded cases similar to theirs.
+              \end{itemize}
+              
           \end{itemize}
         \vspace{0.1in}
         \pause
-        \item Placebo: \textit{``Do you know that you could resolve this conflict today? Conciliation is fast, free, confidential.}
-and impartial.
+        \item \textbf{Placebo:} \textit{``Do you know that you could resolve this conflict today? Conciliation is fast, free, confidential,
+and impartial.}
         \vspace{0.1in}
         \item \textbf{Take-up} of treatment in Phases 1 and 2 around 70\%. Will show ITT results.
            \vspace{0.1in}
@@ -802,19 +823,27 @@ and impartial.
 \section{Experimental Results}
 
 
+\begin{frame}{}
+    \vfill
+    \begin{center}
+        \Large
+        RESULTS
+    \end{center}
+\end{frame}
+
 \begin{frame}{Main Results}
 \label{frame_Main_Results}
 The results across the three phases are very consistent. In phase 1/2:
     \begin{enumerate}
-        \item We find that \textbf{\textit{same day} settlement increases by 4.4 - 5.2 pp} for calculator 
+        \item We find that \textbf{\textit{same day} settlement increases by 4 - 5 pp} for calculator 
         \begin{itemize}
-            \item 6\% (11\%) of the Phase I (Phase II) control group settles on the day; The higher settlement rate in Phase II reflects the selection of first hearings.
+            \item 6\% (16\%) of the Phase I (Phase II) control group settles on the day; The higher settlement rate in Phase II reflects the selection of first hearings.
                	\hyperlink{frame_Table3A}{\beamerbutton{Basic}}
                	 \end{itemize}
         \vspace{2mm}
     \pause
     \label{frame_Main_Resultsb}
-        \item Settlement is 15 - 16 pp more likely \textit{in the control group} when the employee is present (lawyer does not want to settle?)
+        \item Settlement is 14 - 15 pp more likely \textit{in the control group} when the employee is present (lawyer does not want to settle?)
          \vspace{2mm}
         \item The \textbf{treatment effect} is much stronger when the worker is present.
             \begin{itemize}
@@ -833,7 +862,7 @@ The results across the three phases are very consistent. In phase 1/2:
              \item The effect of the employee being present on the day becomes insignificant over time (no selection over time?). 
 	\hyperlink{frame_Table3C}{\beamerbutton{LR Outcomes}}
          \end{itemize}
-    \item Cases length is reduced by 13\% 
+    \item \colorbox{yellow}{Cases length is reduced by 13\%} 
     
     \end{enumerate}
  
@@ -841,15 +870,16 @@ The results across the three phases are very consistent. In phase 1/2:
  
  \begin{frame}{Phase 3 outcomes}
 
-    \label{frame_Main_Resultse}
-    The effects are similar in phase 3, where we administer treatment \textit{before} the plaintiff has a lawyer.
+    \label{frame_Main_Resultsd}
+    The effects are similar in phase 3, where we administer treatment \textit{before} the plaintiff has a lawyer.    
+    \hyperlink{frame_Table3D}{\beamerbutton{Phase3}}
     \begin{itemize}
         \item Settlement 11 to 28 months after the worker approached the court
-        \item The magnitude here is difficult to compare with Phase 1/2, but note that .062/.61 = .10 (removing the 39\% that would settle anyway-- in control)
-        \item People treated with the calculator sued 2.6\% less with an informal lawyer. 
-        \item Conditional on having sued, people are 41\% less likely to do so with an informal lawyer
+        \item The magnitude here is difficult to compare with Phase 1/2, \colorbox{yellow}{but note that} $.063/.61 \sim .10$ (removing the 39\% that would settle anyway-- in control)
+        \item People treated with the calculator sued 4.2\% less with an informal lawyer. 
+        \item \colorbox{yellow}{Conditional on having sued, people are 41\% less likely to do so with an informal lawyer}
     \end{itemize}
-    \hyperlink{frame_Table3D}{\beamerbutton{Phase3}}
+    \hyperlink{law_selection}{\beamerbutton{Effects on suing}}
  \end{frame}
  
  \begin{frame}{Main Results: Private vs. Public lawyers}
@@ -1016,9 +1046,10 @@ Treatment appears to shift cases from ``court ruling \alert{without payment}'' t
 Treatment appears to (so far) have had two effects: a large \# of cases settled rather than lost; a small \# of high-value court awards forgone for more modest settlements. 
 \pause
     The patterns suggest that the parties were not confused by the treatment, or influenced to take suboptimal decisions. 
-   
+    
+      \hyperlink{frame_Figure5}{\beamerbutton{SettlementSelection}} 
    \hyperlink{frame_FigureC6}{\beamerbutton{CalculatorSettlementRatio}} 
-   \hyperlink{frame_Figure5}{\beamerbutton{SettlementSelection}} 
+
 
 \end{frame}
 
@@ -1039,7 +1070,7 @@ Treatment appears to (so far) have had two effects: a large \# of cases settled 
 % \end{frame}
  
 
- \begin{frame}{Wellbeing, Phase 3, 2-month survey}
+ \begin{frame}{Well-being, Phase 3, 2-month survey}
  At two months, we asked participants happiness and other welfare questions
     \begin{table}[H]
     \label{calc_template}
@@ -1142,63 +1173,91 @@ Our results indicate that the plaintiffs retain control of decision-making when 
     \textbf{APPENDIX}
 \end{frame}
 
-\begin{frame}{Table3A}
+\begin{frame}{Table 3 A}
 \label{frame_Table3A}
 \begin{flushright}
 	\hyperlink{frame_Main_Results}{\beamerreturnbutton{Back}}
 	\end{flushright}
-\begin{center}
-\includegraphics[scale=0.35]{paper/Tables/Table_3a_210517.JPG}
-\end{center}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.7\columnwidth}{!}{\scriptsize{\input{paper/Tables/itt_a}}}
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
-\begin{frame}{Table3B}
+\begin{frame}{Table 3 B}
 \label{frame_Table3B}
 \begin{flushright}
 	\hyperlink{frame_Main_Resultsb}{\beamerreturnbutton{Back}}
 	\end{flushright}
-\centering
-\includegraphics[scale=0.35]{paper/Tables/Table_3b_210517.JPG}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.75\columnwidth}{!}{\scriptsize{\input{paper/Tables/itt_b}}
+     }
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
-\begin{frame}{Table3C}
+\begin{frame}{Table 3 C}
 \label{frame_Table3C}
 \begin{flushright}
 	\hyperlink{frame_Main_Resultsc}{\beamerreturnbutton{Back}}
 	\end{flushright}
-\centering
-\includegraphics[scale=0.35]{paper/Tables/Table_3c_210517.JPG}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.7\columnwidth}{!}{\scriptsize{\input{paper/Tables/itt_c}}
+     }
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
-\begin{frame}{Table3D}
+\begin{frame}{Table 3 D}
 \label{frame_Table3D}
 \begin{flushright}
-	\hyperlink{frame_Main_Resultse}{\beamerreturnbutton{Back}} 
+	\hyperlink{frame_Main_Resultsd}{\beamerreturnbutton{Back}} 
 	\end{flushright}
-\centering
-\includegraphics[scale=0.35]{paper/Tables/Table_3d_210517.JPG}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.65\columnwidth}{!}{\scriptsize{\input{paper/Tables/itt_d}}
+     }
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
-\begin{frame}{Table3E}
+\begin{frame}{Table 3 E}
 \label{frame_Table3E}
 \begin{flushright}
 	\hyperlink{frame_Control_Function}{\beamerreturnbutton{Back}}
 	\end{flushright}
-\centering
-\includegraphics[scale=0.35]{paper/Tables/Table_3e_210517.JPG}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.7\columnwidth}{!}{\scriptsize{\input{paper/Tables/itt_e.tex}}
+     }
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
-\begin{frame}{Table3}
+\begin{frame}{Table 3}
 \label{frame_Table3}
 \begin{flushright}
-	\hyperlink{frame_Main_Resultse}{\beamerreturnbutton{Back}}
+	\hyperlink{frame_Main_Resultsd}{\beamerreturnbutton{Back}}
 	\end{flushright}
-\centering
-\includegraphics[scale=0.5]{paper/Tables/Table_3_210517.JPG}
+    \begin{table}[H]
+    \begin{center}
+     \resizebox{0.95\columnwidth}{!}{\scriptsize{\input{paper/Tables/ITT}}
+     }
+    \end{center}
+        %\textit{Do file: } \texttt{te\_bylawyer.do}
+\end{table}
 \end{frame}
 
 
-\begin{frame}{SettlementSelection}
+\begin{frame}{Settlement Selection}
 \label{frame_Figure5}
 \begin{flushright}
 	\hyperlink{frame_NPV}{\beamerreturnbutton{Back}}
@@ -1207,7 +1266,7 @@ Our results indicate that the plaintiffs retain control of decision-making when 
 \vspace{-1cm}\includegraphics[scale=0.5]{paper/Figuras/CalculatorVSettlements.pdf}
 \end{frame}
 
-\begin{frame}{CalculatorSettlementRatio}
+\begin{frame}{Calculator Settlement Ratio}
 \label{frame_FigureC6}
 \begin{flushright}
 	\hyperlink{frame_NPV}{\beamerreturnbutton{Back}}
@@ -1229,11 +1288,15 @@ Our results indicate that the plaintiffs retain control of decision-making when 
  \end{frame}
  
   \begin{frame}{Lawyer selection for Phase 3}
+  \label{law_selection}
+  \begin{flushright}
+	\hyperlink{frame_Main_Resultsd}{\beamerreturnbutton{Back}}
+	\end{flushright}
     \begin{table}[H]
-    \caption{Case duration}
-    \label{te_duration}
+    \caption{Lawyer selection}
+    \label{lawyer_selection}
     \begin{center}
-     \resizebox{\columnwidth}{!}{\scriptsize{\input{paper/Tables/TE_lawyer_uncond_p1}}
+     \resizebox{\columnwidth}{!}{\scriptsize{\input{paper/Tables/effects_on_suing}}
      }
     \end{center}
         %\textit{Do file: } \texttt{te\_bylawyer.do}
