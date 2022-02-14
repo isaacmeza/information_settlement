@@ -104,7 +104,19 @@ We conducted surveys with participants at the hearings in Phases 1 and 2, and wi
 \end{table}
 \end{landscape}
 
-\FloatBarrier
+
+
+\begin{table}[H]
+\caption{ITT}
+\label{stderrrors_itt}
+\begin{center}
+\scriptsize{\input{paper/Tables/treatment_effect_itt.tex}}
+\end{center}
+ \scriptsize
+
+%\textit{Do file: } \texttt{}
+\end{table}
+
 
 
 \begin{table}[!ht]
@@ -115,7 +127,7 @@ We conducted surveys with participants at the hearings in Phases 1 and 2, and wi
     \end{center}
      \scriptsize
     \textit{Notes:} 
-    Balance table on basic and strategic variables. The first three columns show phase 1, with means for each variable in the control, calculator, and conciliator treatment groups in the three columns. The next two columns show the control and treatment for phase 2, and finally the last two columns combine both phases. *, **, and *** indicates a difference that is significant at the 10\%, 5\%, and 1\% level, respectively, as compared with the control group. The p-value displayed in the last row corresponds to a test of joint signifficance. 
+    Balance table on basic and strategic variables. The first three columns show phase 1, with means for each variable in the control, calculator, and conciliator treatment groups in the three columns. The next two columns show the control and treatment for phase 2, and finally the last two columns combine both phases. *, **, and *** indicates a difference that is significant at the 10\%, 5\%, and 1\% level, respectively, as compared with the control group. The p-value displayed in the last row corresponds to a test of joint significance. 
     % \textit{Do file: } \texttt{balance.do}
 \end{table}
 
@@ -181,6 +193,75 @@ We want to estimate the probability that a case with characteristics $X_i$ ends 
 %     \textit{RScripts: } \texttt{calc\_predictions.R}
  \end{table}
 
+To assess which variables are the most correlated we find the elasticity between each of the covariates and the predictions of the models selected for each of the outcomes. 
+
+\begin{figure}[H]
+    \caption{Variable importance for discrete models}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m1.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Losing court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m2.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Winning court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m3.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Drop}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m4.pdf}
+    \end{subfigure}  
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Winning on court ruling (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m5.pdf}
+    \end{subfigure}      
+    \end{center}
+     \scriptsize   This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \beta_j \log{X_{i,j}} + \epsilon$. Note that we are leaving out all but the variable in question. Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction. We only plot the 20 (out of 72) most important features defined as the ones with the biggest estimates in absolute value.   
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Variable importance for discrete models}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m1.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Losing court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m2.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Winning court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m3.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Drop}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m4.pdf}
+    \end{subfigure}  
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Winning on court ruling (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m5.pdf}
+    \end{subfigure}      
+    \end{center}
+     \scriptsize  This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \sum_{j}\beta_j \log{X_{i,j}} + \epsilon$.  Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction. By including all the variables we are essentially building a linear approximation around the model's prediction. Note that for the linear models we recover the original point estimates.  We only plot the 20 (out of 72) most important features defined as the ones with the biggest estimates in absolute value.  
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
 
 
 
@@ -227,6 +308,134 @@ As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the a
 \end{landscape}
 
 
+\begin{figure}[H]
+    \caption{Variable importance for continuous models (total compensation)}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m6.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m7.pdf}
+    \end{subfigure}
+   \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m8.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Court ruling (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m9.pdf}
+    \end{subfigure}     
+    \end{center}
+     \scriptsize   This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \beta_j \log{X_{i,j}} + \epsilon$. Note that we are leaving out all but the variable in question. Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction.
+     We only plot the 20 (out of 72) most important features defined as the ones which exhibit the higher correlation in absolute value. 
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
+
+
+\begin{figure}[H]
+    \caption{Variable importance for continuous models (total compensation)}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m6.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m7.pdf}
+    \end{subfigure}
+   \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m8.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Court ruling (Phase 2 \& 3)}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m9.pdf}
+    \end{subfigure}     
+    \end{center}
+     \scriptsize    This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \sum_{j}\beta_j \log{X_{i,j}} + \epsilon$.  Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction. By including all the variables we are essentially building a linear approximation around the model's prediction. Note that for the linear models we recover the original point estimates.  We only plot the 20 (out of 72) most important features defined as the ones with the biggest estimates in absolute value.
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
+
+
+\begin{figure}[H]
+    \caption{Variable importance for continuous models (duration)}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m10.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Losing court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m11.pdf}
+    \end{subfigure}
+   \begin{subfigure}{0.475\textwidth}
+        \caption{Winning court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m12.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Expiry }
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m13.pdf}
+    \end{subfigure}     
+        \begin{subfigure}{0.475\textwidth}
+        \caption{Drop }
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef_m14.pdf}
+    \end{subfigure}     
+    \end{center}
+     \scriptsize This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \beta_j \log{X_{i,j}} + \epsilon$. Note that we are leaving out all but the variable in question. Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction.  We only plot the 20 (out of 72) most important features defined as the ones with the biggest estimates in absolute value.  
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Variable importance for continuous models (duration)}
+    \label{}
+    \begin{center}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Settlement}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m10.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Losing court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m11.pdf}
+    \end{subfigure}
+   \begin{subfigure}{0.475\textwidth}
+        \caption{Winning court ruling}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m12.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Expiry }
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m13.pdf}
+    \end{subfigure}     
+        \begin{subfigure}{0.475\textwidth}
+        \caption{Drop }
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/coef1_m14.pdf}
+    \end{subfigure}     
+    \end{center}
+     \scriptsize This figure shows the main features and the role they play in each of the above models. We estimate the effect of this features on the predictions made by this models : $\log{\widehat{pr_i}} = \alpha + \sum_{j}\beta_j \log{X_{i,j}} + \epsilon$.  Qualitatively, these betas can be used to assess the elasticity of the prediction function with the features, they can be interpreted as the elasticity of the partial effect of variable $X_{j}$ on the model's prediction. By including all the variables we are essentially building a linear approximation around the model's prediction. Note that for the linear models we recover the original point estimates.  We only plot the 20 (out of 72) most important features defined as the ones with the biggest estimates in absolute value.
+          %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
+\end{figure}
 
 
 \subsection*{Other issues: Censoring}
