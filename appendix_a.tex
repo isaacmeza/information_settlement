@@ -123,12 +123,15 @@ We conducted surveys with participants at the hearings in Phases 1 and 2, and wi
   \caption{Balance table}
     \label{balance_table}
     \begin{center}
-    \scriptsize{\input{paper/Tables/Balance.tex}}
+    \scriptsize{\input{paper/Tables/Balance_new.tex}}
     \end{center}
      \scriptsize
     \textit{Notes:} 
-    Balance table on basic and strategic variables. The first three columns show phase 1, with means for each variable in the control, calculator, and conciliator treatment groups in the three columns. The next two columns show the control and treatment for phase 2, and finally the last two columns combine both phases. *, **, and *** indicates a difference that is significant at the 10\%, 5\%, and 1\% level, respectively, as compared with the control group. The p-value displayed in the last row corresponds to a test of joint significance. 
-    % \textit{Do file: } \texttt{balance.do}
+    Balance table on basic and strategic variables. The first three columns show phase 1, with means for each variable in the control, calculator, and conciliator treatment groups in the three columns. The next two columns show the control and treatment for phase 2, and finally the last two columns combine both phases. *, **, and *** indicates a difference that is significant at the 10\%, 5\%, and 1\% level, respectively, as compared with the control group. The p-value displayed in the last row corresponds to a test of joint significance.\\
+    
+     To identify outliers for these variables, we follow \cite{BILLOR2000279}, and use STATA's command \texttt{bacon}. Using this methodology we identified 5 outliers, and as luck would have it, all 5 are in the control group (and all in phase 1). Removing these 5 observations is enough to achieve balance. Main results do not change when removing this 5 observations.
+     
+    % \textit{Do file: } \texttt{balance_corrected.do}
 \end{table}
 
 
@@ -197,7 +200,7 @@ To assess which variables are the most correlated we find the elasticity between
 
 \begin{figure}[H]
     \caption{Variable importance for discrete models}
-    \label{}
+    \label{PredictorsDiscrete1}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
         \caption{Settlement}
@@ -229,9 +232,11 @@ To assess which variables are the most correlated we find the elasticity between
           %\footnotesize{ \textit{Do file: }  \texttt{coefplots.do}}
 \end{figure}
 
+
+
 \begin{figure}[H]
     \caption{Variable importance for discrete models}
-    \label{}
+    \label{PredictorsDiscrete2}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
         \caption{Settlement}
@@ -341,7 +346,7 @@ As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the a
 
 \begin{figure}[H]
     \caption{Variable importance for continuous models (total compensation)}
-    \label{}
+    \label{PredictorsCont1}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
         \caption{Settlement}
@@ -371,7 +376,7 @@ As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the a
 
 \begin{figure}[H]
     \caption{Variable importance for continuous models (duration)}
-    \label{}
+    \label{PredictorsCont2}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
         \caption{Settlement}

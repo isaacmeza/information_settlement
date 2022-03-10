@@ -1,0 +1,13 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	abogado_pub	gens	trabajador_bases	c_antiguedads	salario_diarios	horas_sems
+						
+2.treatment	0.034	-0.256**	-0.0351	-0.286*	-0.0975	-0.0203
+	(0.049)	(0.121)	(0.106)	(0.161)	(0.141)	(0.117)
+Constant	0.223***	0.162*	0.0197	0.189	0.0659	0.0230
+	(0.043)	(0.0890)	(0.0965)	(0.133)	(0.141)	(0.0755)
+						
+Observations	312	312	312	306	307	306
+R-squared	0.042	0.080	0.049	0.068	0.006	0.136
+treatment=0	0.492	0.0395	0.742	0.0814	0.493	0.863
+Robust standard errors in parentheses						
+*** p<0.01, ** p<0.05, * p<0.1						

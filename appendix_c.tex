@@ -69,7 +69,7 @@
     \scriptsize{\input{paper/Tables/ep_balance.tex}}
     \end{center}
      \scriptsize
-    \textit{Notes:} The table shows results of regressions with the specification $y_i = \alpha_t + \sum_{j = 1,2}\beta_{j} T_{j} + \epsilon_{i}$, where j refers to the treatment assignment ${calculator, conciliator}$. The sample is limited to the cases in which the plaintiff was present at the hearing. All right-hand side variables are standardized so that the constant reflects balance in the control group. Each row represents a different regression with the indicated independent variable. The regressions all include subcourt fixed effects. 
+    \textit{Notes:} The table shows results of regressions with the specification $y_i = \alpha_t + \beta T_i + \epsilon_{i}$. The sample is limited to the cases in which the plaintiff was present at the hearing.  Each columns represents a different regression with the indicated independent variable. The regressions all include subcourt fixed effects. 
          
     %\textit{Do file: } \texttt{ep\_balance.do}
 \end{table}
@@ -98,7 +98,7 @@
     \end{center}
 % \begin{figurenotes}
     \scriptsize
-\textit{Notes:} The table regresses measures of expectation elicited in the baseline survey on dummies of who is the respondent of the survey. For some cases we could elicit the expectation of more than one party (employee, employee's lawyer, firm's lawyer). The omitted variable is the employee dummy, so the interpretation of the employee's lawyer and firm's lawyer coefficients are relative to the employee who is captured in the constant. It combines two phases in one singled pooled dataset. Each column represents a different regression. The first column use elicited probability of winning as a dependent variable. The exact question is: \textit{``How likely is it that you will win the lawsuit if it ends in a court judgment?''}. The second column use the peso amount (undiscounted) that they expect to recover conditional on winning. The exact wording of the survey question is: \textit{``in case you win the lawsuit, what amount are you most likely to win?''}.  All columns include casefile fixed effects, avoiding the comparison across casefiles. The bottom of the table present the p-values of two null hypothesis:  $\alpha + \beta_1=0$, and $\alpha + \beta_2=0$, telling us whether the employee's laywer, or firm's lawyer are more or less confident. Last 2 columns use a measure of ``overconfidence'', which compares the subjective expectation vs the personalized calculator prediction. Relative OC is computed as $\frac{expectation-prediction}{prediction}$, where expectation refers to the expectation measured in the baseline survey.
+\textit{Notes:} The table regresses measures of expectation elicited in the baseline survey on dummies of who is the respondent of the survey. For some cases we could elicit the expectation of more than one party (employee, employee's lawyer, firm's lawyer). The omitted variable is the employee dummy, so the interpretation of the employee's lawyer and firm's lawyer coefficients are relative to the employee who is captured in the constant. It combines two phases in one singled pooled dataset. Each column represents a different regression. The first column use elicited probability of winning as a dependent variable. The exact question is: \textit{``How likely is it that you will win the lawsuit if it ends in a court judgment?''}. The second column use the peso amount (undiscounted) that they expect to recover conditional on winning. The exact wording of the survey question is: \textit{``in case you win the lawsuit, what amount are you most likely to win?''}.  All columns include casefile fixed effects, avoiding the comparison across casefiles. The bottom of the table present the p-values of two null hypothesis:  $\alpha + \beta_1=0$, and $\alpha + \beta_2=0$, telling us whether the employee's lawyer, or firm's lawyer are more or less confident. Last 2 columns use a measure of ``overconfidence'', which compares the subjective expectation vs the personalized calculator prediction. Relative OC is computed as $\frac{expectation-prediction}{prediction}$, where expectation refers to the expectation measured in the baseline survey.
     %\textit{Do file: } \texttt{prediction\_cases\_pooled.do}
  %  \end{figurenotes}    
 \end{table}
@@ -130,20 +130,33 @@
     %\textit{Do file: } \texttt{treatment\_effects\_IV\_CF.do}
 \end{table}
 
+% \begin{table}[!ht]
+%     \caption{Presence of each party at time of hearing}
+%     \label{table_fs_cf}
+%     \begin{center}
+%     \scriptsize{\input{paper/Tables/presence_time_hearing.tex}}
+%     \end{center}
+%      \scriptsize
+%     \textit{Notes:} This table shows the correlation between attendance to hearing of each party involved and the time of hearing.
+         
+%     %\textit{Do file: } \texttt{presence\_time\_hearing.do}
+% \end{table}
+
+
+
 \begin{table}[!ht]
     \caption{Time of hearing balance table}
     \label{pactor_balance}
     \begin{center}
-    \scriptsize{\input{paper/Tables/BalanceTime}}
+    \scriptsize{\input{paper/Tables/balance_instrument}}
     \end{center}
     \scriptsize
-    \textit{Notes:} This table presents how balanced are casifiles with respect to the instrument of Employee Presence, namely that the hearing took place during the first or last hour of the day. The p-value presented in the last row corresponds to a test of joint signifficance. 
+    \textit{Notes:} This table assess balance in covariates for the distinct times of hearing, which is the variable we use as instrument for employee presence in the control function.
      
-    % \textit{Do file: } \texttt{pEmployeePresence.do}
+    % \textit{Do file: } \texttt{balance_instrument.do}
 \end{table}
 
 
-\FloatBarrier
 %Commented table
 \begin{comment}
 \begin{table}[!ht]
@@ -163,25 +176,12 @@
     \caption{Heterogeneity in treatment effects}
     \label{te_heterogeneity}
     \begin{center}
-    \scriptsize{\input{paper/Tables/te_heterogeneity_1.tex}}
+    \scriptsize{\input{paper/Tables/te_heterogeneity.tex}}
     \end{center}
-
+         \scriptsize
+ \textit{Notes:} We test for heterogeneity of treatment effects by interacting treatment with the variable shown in the column header. For each test, the first column uses the sample from phase 1, the second from phase 2, and the third from the combined sample. For example, the third column in the top panel shows that, in the combined sample, plaintiffs with higher daily wages (as reported in the case file) were marginally significantly less likely to settle when the plaintiff was present and provided the calculator information. 
     %\textit{Do file: } \texttt{te\_heterogeneity.do}
 \end{table}
-
-
-\begin{table}[!ht]
-    \caption*{}
-    \begin{center}
-    \scriptsize{\input{paper/Tables/te_heterogeneity_2.tex}}
-    \end{center}
-     \scriptsize
-    \textit{Notes:} We test for heterogeneity of treatment effects by interacting treatment with the variable shown in the column header. For each test, the first column uses the sample from phase 1, the second from phase 2, and the third from the combined sample. For example, the third column in the top panel shows that, in the combined sample, plaintiffs with higher daily wages (as reported in the case file) were marginally significantly less likely to settle when the plaintiff was present and provided the calculator information. 
-         
-    %\textit{Do file: } \texttt{te\_heterogeneity.do}
-\end{table}
-%Trick to reset table numbering 
-
 
 
 \begin{table}[!ht]
@@ -257,7 +257,7 @@
     \\
     \\
 \textit{Notes:} 
-This table presents the treatment effect of the calculator on relative expectation updating, defined as $\frac{exitsurvey-initialsurvey}{initialsurvey}$.  Sample is restricted to over-confident cases (i.e. \textit{initial survey}>\textit{calculator prediction}) for Panel A, while it is restricted to under-confident cases for Panel B. For both panels, column 1 presents the results for surveyed employees, column 2 the results for surveyed employee's lawyer and table 3 the results for the firm's lawyer. All regressions include basic variables as controls (Public lawyer, Gender, At will worker, Tenure, Daily wage \& Weekly hours).
+This table presents the treatment effect of the calculator on relative expectation updating, defined as $\frac{exitsurvey-initialsurvey}{initialsurvey}$.  Sample is restricted to over-confident cases (i.e. \textit{initial survey}$>$\textit{calculator prediction}) for Panel A, while it is restricted to under-confident cases for Panel B. For both panels, column 1 presents the results for surveyed employees, column 2 the results for surveyed employee's lawyer and table 3 the results for the firm's lawyer. All regressions include basic variables as controls (Public lawyer, Gender, At will worker, Tenure, Daily wage \& Weekly hours).
 
 %All regressions include basic variables as controls (Public %lawyer, Gender, At will worker, Tenure, Daily wage \& Weekly %hours). Sample is restricted to over-confident cases (i.e. %$initial survey>calculator prediction$) for Panel A, while it is %restricted to underconfidents for Panel B. Other controls refer %to repeated, player, level of anger and education level. It is %important to note that scpecification is not robust to other %controls.  Relative updating is computed as %$\frac{exitsurvey-initialsurvey}{initialsurvey}$.
 
@@ -272,7 +272,18 @@ This table presents the treatment effect of the calculator on relative expectati
     \end{center}
      \scriptsize
 
-\textit{Notes:} The table shows the duration of cases in phases 1 and 2, measured in days from the date of filing to the date of the final resolution. All regressions control for the age of the case at the time of treatment, and include dummies for phase 2 and the subcourt where the case was heard. Column 1 is an OLS regression and Columns 2 and 3 are Cox proportional hazards models, showing the coefficients rather than proportional hazards. Columns 1 and 2 include all cases and Column 3 removes from the sample cases that were settled. The sample in all regressions is limited to cases with private lawyers. The sample is slightly smaller than that in Table \ref{te_bylawyer} because we eliminate a few cases with a missing date of filing. 
+\textit{Notes:} The table shows the duration of cases in phases 1 and 2, measured in days from the date of filing to the date of the final resolution. All regressions control for the age of the case at the time of treatment, and include dummies for phase 2 and the subcourt where the case was heard. Column (1) is an OLS regression. \\
+
+Columns (2) and (3) are Cox proportional hazards models: For a baseline hazard function ($\lambda_0(t)$) of case ending, we assume that covariates are multiplicatively related to the hazard. 
+$$\lambda(t|X_i) = \lambda_0(t)\exp(\beta_1X_{i1} + \cdots + \beta_pX_{ip})$$
+where $t$ represents the survival time. The table reports coefficients $\beta_p$.
+
+Variables with positive $\beta$ coefficients are associated with increased hazard and decreased survival times, i.e. for those covariates the predicted duration decreases.
+
+For instance, the treatment and the employee presence increases the hazard by 31.8\% (\emph{decreasing} the duration time). Note that it does not follow that the duration in time is decreased by the same percentage that the hazard is increasing.\\
+
+
+Columns (1) and (2) include all cases and Column (3) removes from the sample cases that were settled. The sample in all regressions is limited to cases with private lawyers. The sample is slightly smaller than that in Table \ref{te_bylawyer} because we eliminate a few cases with a missing date of filing. 
 \end{table}
 % Do file: Table5_followupTable_rep_private.do
 
@@ -292,18 +303,18 @@ This table presents the treatment effect of the calculator on relative expectati
 
 \subsection{Figures}
 
-\begin{figure}[!ht]
- \caption{Stylized Depiction of the Labor Justice Process}
-    \begin{center}
-        \includegraphics[width=0.9\textwidth]{paper/Figuras/Stylized Diagram of Case Origination.pdf}
-        \end{center}
+% \begin{figure}[!ht]
+%  \caption{Stylized Depiction of the Labor Justice Process}
+%     \begin{center}
+%         \includegraphics[width=0.9\textwidth]{paper/Figuras/Diagram_Case_Origination_.png}
+%         \end{center}
 
-    \label{stylized_representation}
-%\begin{figurenotes}
-    \scriptsize
-\textit{Notes:} This figure is a stylized representation of the process that casefiles follow in Mexico City's Labor Court.  
-%\end{figurenotes}    
-\end{figure}
+%     \label{stylized_representation}
+% %\begin{figurenotes}
+%     \scriptsize
+% \textit{Notes:} This figure is a stylized representation of the process that casefiles follow in Mexico City's Labor Court.  
+% %\end{figurenotes}    
+% \end{figure}
 
 \begin{figure}[!ht]
  \caption{Calculator Treatment Format (example) - Phase 2}
@@ -366,41 +377,41 @@ This table presents the treatment effect of the calculator on relative expectati
 % \end{figurenotes}    
 \end{figure}
 
-\begin{figure}[!ht]
-    \caption{Subjective expectation minus prediction - Phase 1}
-    \label{Figure_overconfidence_exp}
-    \begin{center}
-    \begin{subfigure}{0.45\textwidth}
-        \caption{Employee}
-        \centering
-        \includegraphics[width=\linewidth]{diff_amt_e.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{diff_prob_e.pdf}
-        \end{subfigure}
-        \begin{subfigure}{0.45\textwidth}
-            \caption{Employee's Lawyer}
-            \centering
-            \includegraphics[width=\linewidth]{diff_amt_el.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{diff_prob_el.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \caption{Firm's Lawyer}
-        \centering
-        \includegraphics[width=\linewidth]{diff_amt_fl.pdf}
-        \end{subfigure}
-        \begin{subfigure}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{diff_prob_fl.pdf}   
-    \end{subfigure}        
-    \end{center}
-      \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) from what the subject expects vs. what our models predict. Note how, for Employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is only natural, since the former are thinking about expected wins and the latter about expected losses. 
-    %   \scriptsize{ \textit{Do file: }  \texttt{oc\_comparison\_B.do}}
-\end{figure}
+% \begin{figure}[!ht]
+%     \caption{Subjective expectation minus prediction - Phase 1}
+%     \label{Figure_overconfidence_exp}
+%     \begin{center}
+%     \begin{subfigure}{0.45\textwidth}
+%         \caption{Employee}
+%         \centering
+%         \includegraphics[width=\linewidth]{diff_amt_e.pdf}
+%     \end{subfigure}
+%     \begin{subfigure}{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{diff_prob_e.pdf}
+%         \end{subfigure}
+%         \begin{subfigure}{0.45\textwidth}
+%             \caption{Employee's Lawyer}
+%             \centering
+%             \includegraphics[width=\linewidth]{diff_amt_el.pdf}
+%     \end{subfigure}
+%     \begin{subfigure}{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{diff_prob_el.pdf}
+%     \end{subfigure}
+%     \begin{subfigure}{0.45\textwidth}
+%         \caption{Firm's Lawyer}
+%         \centering
+%         \includegraphics[width=\linewidth]{diff_amt_fl.pdf}
+%         \end{subfigure}
+%         \begin{subfigure}{0.45\textwidth}
+%             \centering
+%             \includegraphics[width=\linewidth]{diff_prob_fl.pdf}   
+%     \end{subfigure}        
+%     \end{center}
+%       \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) from what the subject expects vs. what our models predict. Note how, for Employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is only natural, since the former are thinking about expected wins and the latter about expected losses. 
+%     %   \scriptsize{ \textit{Do file: }  \texttt{oc\_comparison\_B.do}}
+% \end{figure}
 
 \begin{figure}[!ht]
     \caption{Settlement Amount vs. Calculator}
@@ -472,7 +483,7 @@ This table presents the treatment effect of the calculator on relative expectati
         \includegraphics[width=0.6\textwidth]{discount_rate_tp_comp.pdf}
          \end{center}
               \scriptsize
-             \textit{Notes:} Comparison of discount rates for Phase 1 data and survey data from the MxFLS (Mexican Family Life Survey-  a longitudinal survey in Mexico that follows individuals across rounds). In both surveys individuals are asked whether they would choose to recieve \$1,000 dolars today or an array of different values in the future (\$1,200, \$1,500, \$2,000 or \$3,000 dollars). The monthly discount rate is calculated by dividing the \$1,000 dollars over the answered choice made by individuals. This was done accordingly to the MxFLS.  
+             \textit{Notes:} Comparison of discount rates for Phase 1 data and survey data from the MxFLS (Mexican Family Life Survey-  a longitudinal survey in Mexico that follows individuals across rounds). In both surveys individuals are asked whether they would choose to receive \$1,000 dollars today or an array of different values in the future (\$1,200, \$1,500, \$2,000 or \$3,000 dollars). The monthly discount rate is calculated by dividing the \$1,000 dollars over the choice made by individuals.   
         %\textit{Do file: } \texttt{discount\_rate\_ph1\_mxfls.do}                   
 \end{figure}
 
