@@ -125,9 +125,9 @@
     \scriptsize{\input{paper/Tables/fs_treatment_effects.tex}}
     \end{center}
      \scriptsize
-    \textit{Notes:} The first column repeats the regression in column 5 of \ref{Treatment_effects} using a probit specification rather than a linear probability model. The second column is a OLS first stage for employee present included just for comparison with columns 3 and 4. The third column is the first stage of the control function regression shown in column 9 of \ref{Treatment_effects}. Columns 4 and 5 repeat the control function regression using individual dummy variables for each-hour hearing time. Column 4 shows the first stage and column 5 the outcome regression including the residual from the regression in column 4. See the notes to \ref{Treatment_effects} for further details. 
+    \textit{Notes:} The first column repeats the regression in column 5 of \ref{Treatment_effects} using a probit specification rather than a linear probability model. Column (2) is a `reduced form' OLS regression, and column (3) conditions on employee \emph{not} being present. This serves as a test that time of the hearing does not affect settlement for reasons other than the plaintiff's presence. In the bottom panel we included the p-value for the null that the instrumental variables are equal to zero. Columns (4)-(5) are analogous to columns(2)-(3) but with a probit specification. The sixth column is a OLS first stage for employee present, and column (7) is the probit FS used in the control function of table \ref{Treatment_effects}. See the notes to \ref{Treatment_effects} for further details. 
          
-    %\textit{Do file: } \texttt{treatment\_effects\_IV\_CF.do}
+    %\textit{Do file: } \texttt{fs_treatment_effects.do}
 \end{table}
 
 % \begin{table}[!ht]
@@ -377,41 +377,41 @@ Columns (1) and (2) include all cases and Column (3) removes from the sample cas
 % \end{figurenotes}    
 \end{figure}
 
-% \begin{figure}[!ht]
-%     \caption{Subjective expectation minus prediction - Phase 1}
-%     \label{Figure_overconfidence_exp}
-%     \begin{center}
-%     \begin{subfigure}{0.45\textwidth}
-%         \caption{Employee}
-%         \centering
-%         \includegraphics[width=\linewidth]{diff_amt_e.pdf}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \centering
-%         \includegraphics[width=\linewidth]{diff_prob_e.pdf}
-%         \end{subfigure}
-%         \begin{subfigure}{0.45\textwidth}
-%             \caption{Employee's Lawyer}
-%             \centering
-%             \includegraphics[width=\linewidth]{diff_amt_el.pdf}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \centering
-%         \includegraphics[width=\linewidth]{diff_prob_el.pdf}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \caption{Firm's Lawyer}
-%         \centering
-%         \includegraphics[width=\linewidth]{diff_amt_fl.pdf}
-%         \end{subfigure}
-%         \begin{subfigure}{0.45\textwidth}
-%             \centering
-%             \includegraphics[width=\linewidth]{diff_prob_fl.pdf}   
-%     \end{subfigure}        
-%     \end{center}
-%       \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) from what the subject expects vs. what our models predict. Note how, for Employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is only natural, since the former are thinking about expected wins and the latter about expected losses. 
-%     %   \scriptsize{ \textit{Do file: }  \texttt{oc\_comparison\_B.do}}
-% \end{figure}
+\begin{figure}[!ht]
+    \caption{Subjective expectation minus prediction - Phase 1}
+    \label{Figure_overconfidence_exp}
+    \begin{center}
+    \begin{subfigure}{0.45\textwidth}
+        \caption{Employee}
+        \centering
+        \includegraphics[width=\linewidth]{diff_amt_e.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{diff_prob_e.pdf}
+        \end{subfigure}
+        \begin{subfigure}{0.45\textwidth}
+            \caption{Employee's Lawyer}
+            \centering
+            \includegraphics[width=\linewidth]{diff_amt_el.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{diff_prob_el.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \caption{Firm's Lawyer}
+        \centering
+        \includegraphics[width=\linewidth]{diff_amt_fl.pdf}
+        \end{subfigure}
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{diff_prob_fl.pdf}   
+    \end{subfigure}        
+    \end{center}
+      \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) from what the subject expects vs. what our models predict. Note how, for Employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is only natural, since the former are thinking about expected wins and the latter about expected losses. 
+    %   \scriptsize{ \textit{Do file: }  \texttt{oc\_comparison\_B.do}}
+\end{figure}
 
 \begin{figure}[!ht]
     \caption{Settlement Amount vs. Calculator}

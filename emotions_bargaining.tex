@@ -1,0 +1,110 @@
+%\documentclass[AER  , draftmode]{AEA}
+\documentclass[11pt, a4paper]{article}
+\usepackage[nohead]{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in} % set margins
+
+\input{preamble.tex}
+\usepackage{anyfontsize}
+\usepackage{float}
+\usepackage{placeins} %esto es solo para poder 
+%%% HELPER CODE FOR DEALING WITH EXTERNAL REFERENCES
+\usepackage{xr}
+\usepackage{setspace}
+\usepackage{caption}
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{
+    \externaldocument{#1}
+    \addFileDependency{#1.tex}
+    \addFileDependency{#1.aux}
+}
+
+\doublespacing
+
+% -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+\title{Emotions \& Bargaining}
+\maketitle
+
+\section{Descriptive plots}
+
+\begin{figure}[H]
+    \caption{Category plots measuring emotions}
+    \label{}
+    \begin{center}
+
+    \begin{subfigure}{0.475\textwidth}
+        \caption{How well the firm treated you?}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/catplot_trato.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{How common the firm treats bad their employees?}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/catplot_comun.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{What's your level of anger towards the firm?}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/catplot_enojo.pdf}
+    \end{subfigure}    
+    \end{center}
+    
+    
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Interaction of emotions}
+    \label{}
+    \begin{center}
+
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Commonly treated bad $\times$ Treated bad}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/catplot_trato_comun.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.475\textwidth}
+        \caption{Treated bad $\times$ Anger}
+        \centering
+        \includegraphics[width=\textwidth]{paper/Figuras/catplot_trato_enojo.pdf}
+    \end{subfigure}
+    \end{center}
+    
+    \scriptsize \textit{Notes:} Panel (a) interacts the two questions : How common the firm treats bad their employees? with How the firm treated the dismissed employee. Panel (b) interacts whether the employee was treated bad with her level of anger towards the firm.
+    
+\end{figure}
+
+\newpage
+
+\begin{landscape}
+\section{Regressions}
+%#include
+\begin{table}[!ht]
+    \caption{Correlation between emotions and bargaining}
+    \label{tab:TreatmentArms}
+    \begin{center}
+     \scriptsize{\input{./paper/Tables/emotions_bargaining.tex}}
+     \end{center}
+    
+     \scriptsize
+%\begin{figurenotes}
+\textit{Notes:} This table shows correlation between outcomes (settlement) and the employee's expectation on outcomes with levels of emotions. The variable \textit{Treated bad} is coded as $1$ whenever respondent answers "Slightly well" or "Bad" to the question "How well the firm treated you?". The variable \textit{Angry} is defined to be $0$ only when respondent answer "Not angry" to the level of anger she experiences.  
+%\end{figurenotes}    
+\end{table}
+\end{landscape} 
+
+
+
+\end{document}
+
+
