@@ -490,7 +490,7 @@ Finally, the experiment provides a window on the functioning of the court as an 
 %\begin{figurenotes}
 \scriptsize
 \textit{Notes:}  This table estimates the main treatment effects for both experimental phases. Columns 1 through 5 measure settlement on the same day as the treatment, with the sample in columns 1 and 2 limited to Phase 1, the sample in columns 3 and 4 limited to Phase 2, and the sample in column 5 combining data from the two phases.  Column 6 uses treatment-day settlements but adds a control for potential endogeneity of the presence of the employee, as described in the text and shown in Table \ref{table_fs_cf}. Column 7 shows the effect of treatment on settlement around 42 months after the treatment, using the combined sample from the first two phases. Column 8 shows the effect on settlement two months after treatment in Phase 3, using data from the follow-up phone surveys.  Note that in Phase 1, treatment is at the casefile level, while in Phase 2 it is at the day level. Standard errors are clustered at the level of treatment. ``Calculator'' is a dummy indicating that the casefile or day was randomly assigned to receive the calculator. ``Emp present'' is an indicator for the employee being present on the treatment day, and ``Calculator\#EP'' is the interaction between the employee present and treatment dummies. Columns including Phase 2 observations include subcourt dummies. 
-    %\textit{Do file: }ITTVersion.do, treatment_effects_IV_CF_noConciliator_rep_NoDuplicatesITT.do, falta el de P3}
+    %\textit{Do file: }treatment_effect_itt_new.do}
  % \end{figurenotes}     
 \end{table}
 \end{landscape}
@@ -505,8 +505,8 @@ Finally, the experiment provides a window on the functioning of the court as an 
     \textit{Notes:} The table reproduces the regressions in columns 5 through 5 of \ref{Treatment_effects}. Columns 1 and 2 use the sample of cases in which the plaintiff uses a private lawyer and the columns 3 and 4 the sample of cases where the plaintiff uses a public lawyer. We are unable to determine whether the lawyer is public or private in 60 of the cases. The dependent variable is a dummy indicating the case was settled by the time indicated on the column heading. All regressions include sub-court dummy variables as controls. See the notes to \ref{Treatment_effects} for further details. \\
          
          
-    We also test for the difference between the interaction term of Calculator with employee present for public vs private lawyer. To do that we simply estimate a fully flexible specification including the interaction of a dummy for public lawyer. The p-value for the Wald test Calculator$\times$EP$\times$Public Lawyer$=0$ is 0.084 for same-day settlement, while it is 0.310 for long-run settlement.
-    %\textit{Do file: } \texttt{Table6_teByLawyer_rep.do}
+    We also test for the difference between the interaction term of Calculator with employee present for public vs private lawyer. To do that we simply estimate a fully flexible specification including the interaction of a dummy for public lawyer. The p-value for the Wald test Calculator$\times$EP$\times$Public Lawyer$=0$ is 0.084 for same-day s  ettlement, while it is 0.310 for long-run settlement.
+    %\textit{Do file: } \texttt{teByLawyer.do}
 \end{table}
 
 \begin{table}[!ht]
@@ -624,7 +624,7 @@ The figure uses the historical data (5005 casefiles) to plot the cumulative dist
 % \begin{figurenotes}
 \scriptsize
 \textit{Notes:} Data are from baseline survey of Phase 1. The figure shows averages of correct answers for several questions, grouped into: knowledge of the law (panel 1) and knowledge of the content of their own lawsuit (panels 2 to 4). The question for panel (1) is \textit{"In the case of unjustified dismissal, law gives you a constitutional indemnification: Do you know how many days of salary this represents?''}. Panels (2) to (4) correspond to the question: \textit{``Mark the benefits that you claimed in this suit: 1.Constitutional indemnification, 2.Medical insurance, 3.Reinstatement, 4.Overtime, 5.Premium for working Saturdays, 6. Aguinaldo (bonus), 7.Don't know''}. The figure indicates whether the respondent correctly answered items 2, 3 and 4.
-        %{\scriptsize \textit{Do files: }  \texttt{Fig4_knowledge_all_new_S_byType}}
+        %{\scriptsize \textit{Do files: }  \texttt{knowledge_allbyType}}
 % \end{figurenotes}        
 \end{figure}
 
