@@ -1,5 +1,15 @@
 
 # Data files
+
+/DB/
+/DB/**
+
+/Raw/
+/Raw/**
+
+/_aux/
+/_aux/**
+
 /paper/Raw/
 /paper/Raw/**
 
