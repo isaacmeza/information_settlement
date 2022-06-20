@@ -1,0 +1,18 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	bajo_inm_prob_d	bajo_inm_prob	bajo_inm_quant_d	bajo_inm_quant
+				
+2.main_treatment	0.30***	-0.06***	0.26***	1,993
+	(0.02)	(0.01)	(0.03)	(3,287)
+Constant	-0.00	-0.01	0.00	2,092*
+	(0.01)	(0.00)	(0.01)	(1,200)
+				
+Observations	1,251	1,251	573	573
+R-squared	0.19	0.06	0.16	0
+BVC	Yes	Yes	Yes	Yes
+Source	2m	2m	2m	2m
+Observations per group	645/606	645/606	312/261	312/261
+Days per group	89/103	89/103	81/90	81/90
+DepVarMean	0	0	0	0
+pvalueRI	0	0	0	0.627
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

@@ -1,0 +1,24 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	asinhNPV	asinhNPV	asinhNPV. Controls	asinhNPV. Controls
+				
+2.treatment	0.609	0.0223	0.527	-0.0213
+	(0.565)	(0.610)	(0.598)	(0.644)
+1.p_actor		1.162		0.570
+		(0.980)		(0.972)
+2.treatment#1.p_actor		2.911**		2.749**
+		(1.127)		(1.145)
+1.abogado_pub			3.952***	2.945***
+			(0.469)	(0.504)
+numActores			-2.129***	-2.041***
+			(0.583)	(0.579)
+Constant	0.193	-0.0135	2.270**	2.154**
+	(0.558)	(0.616)	(0.963)	(1.015)
+				
+Observations	1,698	1,698	1,668	1,668
+R-squared	0.001	0.023	0.023	0.037
+Casefile Controls	No	No	Yes	Yes
+DepVarMean	0.576	0.576	0.602	0.602
+IntMean		3.056		3.060
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				
+Controls: i.abogado_pub numActores				

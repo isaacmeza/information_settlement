@@ -1,0 +1,22 @@
+	(1)	(2)	(3)
+VARIABLES	Same day. Pooled	LR. Pooled	Same day. Pooled
+			
+2.treatment	0.020	-0.001	0.012
+	(0.017)	(0.029)	(0.059)
+1.p_actor	0.143***	0.051	0.249**
+	(0.042)	(0.060)	(0.115)
+2.treatment#1.p_actor	0.194***	0.159**	-0.054
+	(0.058)	(0.074)	(0.137)
+Constant	0.089***	0.482***	0.140
+	(0.026)	(0.046)	(0.134)
+			
+Observations	1,546	1,546	131
+R-squared	0.144	0.086	0.084
+Court Dummies	Yes	Yes	Yes
+Dependant Variable Mean	0.115	0.421	0.163
+Interaction Mean	0.229	0.446	0.269
+test interaction	0.000142	0.0253	0.734
+pvalueRI	0.472	0.540	0.938
+pvalueRIInteraction	0.00200	0.0160	0.940
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

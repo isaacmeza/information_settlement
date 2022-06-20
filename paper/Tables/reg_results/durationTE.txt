@@ -1,0 +1,21 @@
+	(1)	(2)	(3)
+VARIABLES	OLS	Cox	Cox
+			
+2.treatment	15.858	-0.072	-0.041
+	(27.288)	(0.069)	(0.110)
+1.p_actor	-59.560	0.132	0.004
+	(51.136)	(0.132)	(0.210)
+2.treatment#1.p_actor	-112.421*	0.320*	-0.056
+	(63.276)	(0.184)	(0.281)
+Constant	545.904***		
+	(57.871)		
+			
+Observations	1,548	1,548	815
+R-squared	0.429		
+Casefile Controls	Yes	Yes	Yes
+Includes settled	Yes	Yes	No
+Dependent Variable Mean	868.6		
+Interaction Mean	796.5		
+test interaction	0.118		
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

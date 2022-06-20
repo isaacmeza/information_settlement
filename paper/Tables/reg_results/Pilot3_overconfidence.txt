@@ -1,0 +1,13 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	prob_ganar	cantidad_ganar	mid_overconfidenceAmmount	max_overconfidenceAmmount
+				
+Constant	0.885***	58,077***	1.713***	1.315***
+	(0.00288)	(1,794)	(0.0729)	(0.0619)
+				
+Observations	3,330	1,723	1,723	1,723
+R-squared	0.000	0.000	0.000	0.000
+Ignores prob. (%)	13.08			
+Standard deviation	0.166	74471	3.026	2.570
+Ignores amount. (%)		55.02	55.02	55.02
+Standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				
