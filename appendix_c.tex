@@ -127,7 +127,7 @@
     \scriptsize{\input{paper/Tables/fs_treatment_effects.tex}}
     \end{center}
      \scriptsize
-    \textit{Notes:} The first column repeats the regression in column 5 of \ref{Treatment_effects} using a probit specification rather than a linear probability model. Column (2) is a `reduced form' OLS regression, and column (3) conditions on employee \emph{not} being present. This serves as a test that time of the hearing does not affect settlement for reasons other than the plaintiff's presence. In the bottom panel we included the p-value for the null that the instrumental variables are equal to zero. Columns (4)-(5) are analogous to columns(2)-(3) but with a probit specification. The sixth column is a OLS first stage for employee present, and column (7) is the probit FS used in the control function of table \ref{Treatment_effects}. See the notes to \ref{Treatment_effects} for further details. 
+    \textit{Notes:}  Column (1) is a `reduced form' OLS regression, and column (2) conditions on employee \emph{not} being present. This serves as a test that time of the hearing does not affect settlement for reasons other than the plaintiff's presence. In the bottom panel we included the p-value for the null that the instrumental variables are equal to zero. The third column is a OLS first stage for employee present, and column (4) is the probit FS used in the control function of table \ref{Treatment_effects}. See the notes to \ref{Treatment_effects} for further details. 
          
     %\textit{Do file: } \texttt{fs_treatment_effects.do}
 \end{table}
@@ -411,7 +411,7 @@ Columns (1) and (2) include all cases and Column (3) removes from the sample cas
             \includegraphics[width=\linewidth]{diff_prob_fl.pdf}   
     \end{subfigure}        
     \end{center}
-      \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) from what the subject expects vs. what our models predict. Note how, for Employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is only natural, since the former are thinking about expected wins and the latter about expected losses. 
+      \scriptsize \textit{Notes:} Difference in thousand pesos for amounts (panel on left) and percentage points for probabilities (panel on right) comparing the subject expects and what our models predict. Probabilities are the probability the party's side wins the case. Note that for the employee and employee lawyer, the distribution for amounts is much more skewed to the right than for firm lawyers. This is expected, since the former are thinking about expected collections and the latter about expected payments. 
     %   \scriptsize{ \textit{Do file: }  \texttt{oc\_comparison\_B.do}}
 \end{figure}
 

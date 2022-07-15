@@ -185,7 +185,7 @@ We want to estimate the probability that a case with characteristics $X_i$ ends 
  \\
  \\
  \scriptsize
-   \textit{Notes:} Some statistics on the predictive power of the models considered for both -Phase 1 and Phase 2- calculator calibration processes. Statistics for models chosen for each problem are shown in bold. We show $Corr(y, \hat{y})$ for continuous outcomes. We considered random forests both for continuous and categorical outcome variables, using the algorithm's regression and classification methods, respectively.
+   \textit{Notes:} Some statistics on the predictive power of the models considered for both -Phase 1 and Phase 2- calculator calibration processes. Statistics for models chosen for each problem are shown in bold. This table shows the accuracy rate. The algorithms considered here are classification algorithms.
 %     \textit{RScripts: } \texttt{calc\_predictions.R}
  \end{table}
 
@@ -196,22 +196,22 @@ To assess which variables are the most correlated we find the elasticity between
     \label{PredictorsDiscrete1}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Settlement}
+        \caption{Settlement (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m1.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Losing court ruling}
+        \caption{Losing court ruling (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m2.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Winning court ruling}
+        \caption{Winning court ruling (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m3.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Drop}
+        \caption{Drop (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m4.pdf}
     \end{subfigure}  
@@ -243,7 +243,7 @@ For the continuous outcomes, we estimated a set of four different models for eac
 
 Finally we also wanted to predict the duration of the trial from initial suit to termination. We used the data with models similar to those described for the amount collected. However, for phase 2 the predictions from these models were very noisy: the models could not beat a simple average within each type of ending, so we decided to present the simple average within each type of termination rather than a model as a function of observables. 
 
-As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the accuracy rate for settlement and duration outcomes and for each of the six models, highlighting in grey the ones chosen. The correlations range from 0.61 to 0.76 for the models selected for total compensation, but from 0.08 to 0.93 for the five duration outcomes. 
+As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the correlation between predicted and observed values for compensation and duration outcomes and for each of the six models, highlighting in grey the ones chosen. The correlations range from 0.61 to 0.76 for the models selected for total compensation, but from 0.08 to 0.93 for the five duration outcomes. 
 \\
 
 
@@ -278,12 +278,12 @@ As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the a
     \label{}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Settlement}
+        \caption{Settlement (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m6.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Court ruling}
+        \caption{Court ruling (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m7.pdf}
     \end{subfigure}
@@ -311,27 +311,27 @@ As with the discrete outcomes, Table \ref{ml_models_comparison_cont} shows the a
     \label{PredictorsCont2}
     \begin{center}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Settlement}
+        \caption{Settlement (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m10.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Losing court ruling}
+        \caption{Losing court ruling (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m11.pdf}
     \end{subfigure}
    \begin{subfigure}{0.475\textwidth}
-        \caption{Winning court ruling}
+        \caption{Winning court ruling (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m12.pdf}
     \end{subfigure}
     \begin{subfigure}{0.475\textwidth}
-        \caption{Expiry }
+        \caption{Expiry (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m13.pdf}
     \end{subfigure}     
         \begin{subfigure}{0.475\textwidth}
-        \caption{Drop }
+        \caption{Drop (Phase 1)}
         \centering
         \includegraphics[width=\textwidth]{paper/Figures/coef1_m14.pdf}
     \end{subfigure}     

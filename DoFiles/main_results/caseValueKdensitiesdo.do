@@ -177,8 +177,7 @@ replace modoTermino = 2 if missing(modoTermino)
 *Graph only lower 99%;
 twoway (kdensity liq_total_laudo if treatment==2 & liq_total_laudo<650000 & modoTermino==2 ,  lwidth(medthick) lpattern(solid) color(black)) ||
 		(kdensity liq_total_laudo if treatment==1 & liq_total_laudo<650000 & modoTermino==2  , lpattern(dash) lcolor(gs10) lwidth(medthick)),
-		legend(lab(1 "Treatment") lab(2 "Control") rows(1) pos(6)) xtitle("Calculator Predicted Amounts for Court Win") title("Calculator Predicted Amounts for Court Win") 
-		subtitle("Unresoved Cases, By treatment, truncated at 99%") ytitle("kdensity") graphregion(color(white)) ylabel(0 (0.000006) 0.000006);
+		legend(lab(1 "Treatment") lab(2 "Control") rows(1) pos(6)) xtitle("Calculator Predicted Amounts for Court Win") ytitle("kdensity") graphregion(color(white)) ylabel(0 (0.000006) 0.000006);
 #delimit cr
 graph export "./paper/Figures/Calculator_CourtWin_Unresolved.pdf", replace 
 
@@ -186,8 +185,7 @@ forvalues i = 1/2{
     #delimit ;
    twoway (kdensity liq_total_laudo if treatment==2 & liq_total_laudo<650000 & modoTermino==2  & phase ==`i',  lwidth(medthick) lpattern(solid) color(black)) ||
 		(kdensity liq_total_laudo if treatment==1 & liq_total_laudo<650000 & modoTermino==2  & phase ==`i', lpattern(dash) lcolor(gs10) lwidth(medthick)),
-		legend(lab(1 "Treatment") lab(2 "Control") rows(1) pos(6)) xtitle("Calculator predicted settlement") title("Calculator Predicted Amounts for Court Win") 
-		subtitle("Unresoved Cases, By treatment, truncated at 99%") ytitle("kdensity") graphregion(color(white)) ylabel(0 (0.000006) 0.000006);
+		legend(lab(1 "Treatment") lab(2 "Control") rows(1) pos(6)) xtitle("Calculator predicted settlement") ytitle("kdensity") graphregion(color(white)) ylabel(0 (0.000006) 0.000006);
 #delimit cr
 graph export "./paper/Figures/Calculator_CourtWin_Unresolved_P`i'.pdf", replace 
 }

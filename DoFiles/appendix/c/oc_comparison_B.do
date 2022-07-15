@@ -68,16 +68,13 @@ duplicates drop folio tratamientoqueles secon, force
 xtile perc=A_5_5, nq(100)
 drop if perc>=99
 
-*We keep calculator treatment arm 
-keep if tratamientoquelestoco==2
 
 	*Money
 gen diff_amount=(A_5_5-exp_comp)/1000
 
 qui su diff_amount
 
-twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(10) percent) ///
-		(scatteri 0 `r(mean)' 20 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(3) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Amount") xtitle("Survey - Calculator in thousand pesos") ///
 	legend(off) name(amount, replace)
@@ -92,8 +89,7 @@ gen diff_prob=Prob_win-Prob_win_calc
 
 qui su diff_prob
 
-twoway (hist diff_prob, w(10) percent) ///
-		(scatteri 0 `r(mean)' 20 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_prob, w(5) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Probability") xtitle("Survey -  Calculator in % points") ///
 	legend(off) name(prob, replace)
@@ -114,15 +110,12 @@ duplicates drop folio tratamientoqueles secon, force
 xtile perc=RA_5_5, nq(100)
 drop if perc>=99
 
-*We keep calculator treatment arm 
-keep if tratamientoquelestoco==2
 
 gen diff_amount=(RA_5_5-exp_comp)/1000
 
 qui su diff_amount
 
-twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(10) percent) ///
-		(scatteri 0 `r(mean)' 30 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(3) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Amount") xtitle("Survey - Calculator in thousand pesos") ///
 	legend(off) name(amount, replace)
@@ -137,8 +130,7 @@ gen diff_prob=Prob_win-Prob_win_calc
 
 qui su diff_prob
 
-twoway (hist diff_prob, w(10) percent) ///
-		(scatteri 0 `r(mean)' 30 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_prob, w(5) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Probability") xtitle("Survey -  Calculator in % points") ///
 	legend(off) name(prob, replace)
@@ -158,15 +150,12 @@ duplicates drop folio tratamientoqueles secon, force
 xtile perc=RD5_5, nq(100)
 drop if perc>=99
 
-*We keep calculator treatment arm 
-keep if tratamientoquelestoco==2
 
 gen diff_amount=(RD5_5-exp_comp)/1000
 
 qui su diff_amount
 
-twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(10) percent) ///
-		(scatteri 0 `r(mean)' 25 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_amount if diff_amount<160 & diff_amount>=-50 , w(3) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Amount") xtitle("Survey - Calculator in thousand pesos") ///
 	legend(off) name(amount, replace)
@@ -181,8 +170,7 @@ gen diff_prob=Prob_win-Prob_win_calc
 
 qui su diff_prob
 
-twoway (hist diff_prob, w(10) percent) ///
-		(scatteri 0 `r(mean)' 25 `r(mean)', c(l) m(i) color(gs10) lwidth(vthick) )  ///
+twoway (hist diff_prob, w(5) percent xline(`r(mean)', lcolor(gs6) lpattern(solid) lwidth(thick))) ///
 		,  graphregion(color(white)) ///
 	title("Probability") xtitle("Survey -  Calculator in % points") ///
 	legend(off) name(prob, replace)
