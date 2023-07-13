@@ -16,20 +16,32 @@ The main folder consists of the following subfolders:
 
 - **DB**: The 'DB' folder contains the datasets necessary for the analysis. These datasets are labeled and organized according to their respective sources or categories. Please refer to the individual dataset files for details on their structure and content. Each dataset has variables properly labeled to explain its meaning, as well as values labeled when neccesary (as in categorical data). This serves also as its own dictionaries. We anonimized the identifiers to preserve data anonimity.
 	
-	Data for main analysis consists on 5 different datasets
-		1. scaleup_hd.dta : This is a dataset of 5005 historical casefiles used for the construction of the calculator for casefile prediction. 
-		2. phase_1.dta : Dataset of the first wave of the experiment. 
-		3. Append Encuesta Inicial Actor.dta : Employee's survey dataset after treatment in the first wave of the experiment.
-		4. phase_2.dta : Dataset of the second wave of the experiment. 
-		5. phase_3.dta : Dataset of the third wave of the experiment.
+Data for main analysis consists on 5 different datasets
 
-	Whereas the data for the analysis in the appendix also includes
-		6. Append Encuesta Inicial Demandado.dta : Firm's survey dataset after treatment in the first wave of the experiment.
-		7. Append Encuesta Inicial Representante Actor.dta : Employee's Lawyer survey dataset after treatment in the first wave of the experiment.
-		8. Append Encuesta Inicial Representante Demandado.dta : Firm's Lawyer survey dataset after treatment in the first wave of the experiment.
-		9. Append Encuesta de Salida : Exit survey after exposure to treatment. 
-		10. hh09w_b3b.dta : Weights for the MxFLS ENNVIH-3 (2009-2012) ; retrieved from http://www.ennvih-mxfls.org/english/weights3.html (7/12/2023)
-		11. iiib_pr : Preferences module for the MxFLS ENNVIH-3 (2009-2012) - Individual databases / Book IIIB ; retrieved from http://www.ennvih-mxfls.org/english/ennhiv-3.html (7/12/2023)
+1. scaleup_hd.dta : This is a dataset of 5005 historical casefiles used for the construction of the calculator for casefile prediction. 
+
+2. phase_1.dta : Dataset of the first wave of the experiment. 
+
+3. Append Encuesta Inicial Actor.dta : Employee's survey dataset after treatment in the first wave of the experiment.
+
+4. phase_2.dta : Dataset of the second wave of the experiment. 
+
+5. phase_3.dta : Dataset of the third wave of the experiment.
+
+
+Whereas the data for the analysis in the appendix also includes
+		
+6. Append Encuesta Inicial Demandado.dta : Firm's survey dataset after treatment in the first wave of the experiment.
+		
+7. Append Encuesta Inicial Representante Actor.dta : Employee's Lawyer survey dataset after treatment in the first wave of the experiment.
+		
+8. Append Encuesta Inicial Representante Demandado.dta : Firm's Lawyer survey dataset after treatment in the first wave of the experiment.
+		
+9. Append Encuesta de Salida : Exit survey after exposure to treatment. 
+		
+10. hh09w_b3b.dta : Weights for the MxFLS ENNVIH-3 (2009-2012) ; retrieved from http://www.ennvih-mxfls.org/english/weights3.html (7/12/2023)
+		
+11. iiib_pr : Preferences module for the MxFLS ENNVIH-3 (2009-2012) - Individual databases / Book IIIB ; retrieved from http://www.ennvih-mxfls.org/english/ennhiv-3.html (7/12/2023)
 
 
 
