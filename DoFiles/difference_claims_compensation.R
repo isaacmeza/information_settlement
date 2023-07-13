@@ -4,7 +4,7 @@ library(tidyverse)
 library(haven)
 
 # Indicate path of repo
-setwd("C:/Users/isaac/Downloads/information_settlement")
+setwd("C:/Users/isaac/Dropbox/repos/information_settlement")
 
 
 trunca99 <- function(x){

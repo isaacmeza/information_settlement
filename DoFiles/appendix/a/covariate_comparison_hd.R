@@ -9,7 +9,7 @@ library(tidyr)
 
 
 # Indicate path of the repository
-setwd("C:/Users/isaac/Downloads/information_settlement")
+setwd("C:/Users/isaac/Dropbox/repos/information_settlement")
 
 
 source('./DoFiles/appendix/a/multiplot.R')
