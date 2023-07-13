@@ -61,6 +61,7 @@ To replicate the analysis, follow these steps:
 3. Change the path in 'global_directory_paper.do' & in the Rscript 'difference_claims_compensation.R', indicating where the local repository is located. 
 
 	3.1 Run the file 'global_directory_paper.do' 
+	
 	3.2 Run the file 'master.do', which calls all the individual files to replicate individual tables & figures. These files are typically named descriptively to indicate their purpose or the analysis step they perform.
 	The dofiles may generate intermediate files, which will be saved in their respective folders.
 
