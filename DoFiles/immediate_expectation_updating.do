@@ -21,6 +21,8 @@ version 17.0
 
 		 
 use ".\DB\phase_3.dta", clear
+keep if status_encuesta==1
+duplicates drop id_actor, force
 keep if !missing(main_treatment) & main_treatment != 3
 
 *Indicators for update in probability after treatment

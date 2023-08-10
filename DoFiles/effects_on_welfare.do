@@ -20,6 +20,8 @@ version 17.0
 */
 
 use ".\DB\phase_3.dta", clear
+duplicates drop id_actor, force
+drop if main_treatment==3
 
 local welfare_vars nivel_de_felicidad ultimos_3_meses_ha_dejado_de_pag ultimos_3_meses_le_ha_faltado_di  trabaja_actualmente 
 local controls gen c_antiguedad salario_diario

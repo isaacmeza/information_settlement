@@ -9,29 +9,31 @@ net install rscript, from("https://raw.githubusercontent.com/reifjulian/rscript/
 
 *	estout
 *! version 3.24  30apr2021  Ben Jann
-capture ssc install estout
+capture ssc install estout, replace
 
 *	ritest
 *! version 1.1.7 feb2020.
-capture ssc install ritest
+capture ssc install ritest, replace
 
 *	distcomp
 *! version 0.2 15may2019
-capture ssc install distcomp
+capture ssc install distcomp, replace
 
 *User-written comands for the appendix
 
 *	orth_out
 *! version 2.9.4 Joe Long 03feb2016
-capture ssc install orth_out
+capture ssc install orth_out, replace
 
 *cvlasso
 *! cvlasso 1.0.09 28jun2019
 *! lassopack package 1.3
 *! authors aa/ms
-capture ssc install cvlasso 
+capture ssc install cvlasso, replace
 
-
+*schemepack
+*schemepack v1.1 (GitHub)
+capture ssc install schemepack, replace
 
 *Change local path where the project folder is located
 cd "C:\Users\isaac\Dropbox\repos\information_settlement"
