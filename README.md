@@ -16,7 +16,7 @@ The main folder consists of the following subfolders:
 
 - **DB**: The 'DB' folder contains the datasets necessary for the analysis. These datasets are labeled and organized according to their respective sources or categories. Please refer to the individual dataset files for details on their structure and content. Each dataset has variables properly labeled to explain its meaning, as well as values labeled when neccesary (as in categorical data). This serves also as its own dictionaries. We anonimized the identifiers to preserve data anonimity.
 	
-Data for main analysis consists on 5 different datasets
+Data for main analysis consists on 5 different datasets. This are datasets constructed by the research team.
 
 		1. scaleup_hd.dta : This is a dataset of 5005 historical casefiles used for the construction of the calculator for casefile prediction. 
 
@@ -43,12 +43,47 @@ Whereas the data for the analysis in the appendix also includes
 				
 		11. iiib_pr : Preferences module for the MxFLS ENNVIH-3 (2009-2012) - Individual databases / Book IIIB ; retrieved from http://www.ennvih-mxfls.org/english/ennhiv-3.html (7/12/2023)
 
-
+Datasets 10. & 11. can be directly downloaded from the ENNVIH website with no required registration.
 
 - **Dofiles**: The 'Dofiles' folder contains the main files used for analysis. These dofiles, mostly written in STATA, except one which is written in R, include the instructions and code necessary to reproduce the results presented in the research paper. 
 
 	The files for the appendix are located in the subfolder appendix. Two further subfolders are found, for analysis in Appendix A and Appendix C respectively. 
 
+## Computational requirements
+
+### Software requirements
+
+- **STATA version 17**
+
+	- rscript (1.1.1 16may2023)
+	- estout (version 3.24  30apr2021)
+	- ritest (1.1.7 feb2020)
+	- distcomp (0.2 15may2019)
+	- orth_out (2.9.4 Joe Long 03feb2016)
+	- cvlasso (1.0.09 28jun2019)
+	- schemepack (v1.1 (GitHub))
+
+- **R 4.2.2
+
+	- dplyr version 1.1.2
+	- ggplot2 version 3.4.2
+	- tidyverse version 2.0.0
+	- haven version 2.5.1
+	- readxl version 1.4.2
+	- ggsignif version 0.6.4
+	- broom version 1.0.4
+	- data.table 1.14.8
+	- tidyr 1.3.0	
+
+### Controlled Randomness	
+
+Random seed is set at line 19 of 'global_directory_paper.do'
+
+### Memory and Runtime Requirements
+
+The code was last run on a 11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz   3.00 GHz processor with 16.0 GB (15.7 GB usable) RAM laptop with Windows 11 Version 22H2.
+
+The code runs for around 1 hour to complete. 
 
 ## Replication Instructions
 
@@ -59,6 +94,8 @@ To replicate the analysis, follow these steps:
 2. Ensure you have the required software and dependencies installed to run the dofiles and process the datasets. 
 
 3. Change the path in 'global_directory_paper.do' & in the Rscript 'difference_claims_compensation.R', indicating where the local repository is located. 
+	
+	3.1 Run the file 'setup.do' to install al dependencies. This should be run once. 
 
 	3.1 Run the file 'global_directory_paper.do' 
 	
