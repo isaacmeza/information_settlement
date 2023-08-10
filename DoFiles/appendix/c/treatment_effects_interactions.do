@@ -27,14 +27,14 @@ global balance_var trabajador_base c_antiguedad abogado_pub indem salario_diario
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores phase $balance_var
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores phase $balance_var
 append using `p2'
 

@@ -24,14 +24,14 @@ local balance_var trabajador_base c_antiguedad abogado_pub indem salario_diario 
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep junta exp anio fecha treatment phase `balance_var' 
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep junta exp anio fecha treatment phase `balance_var'
 append using `p2'
 
@@ -54,7 +54,7 @@ replace cluster_v=fechaJunta if phase==2
 ************************************EP******************************************
 ********************************************************************************
 
-putexcel set ".\Tables\appendix\c\Balance_EP.xlsx", sheet("Balance_EP") modify
+putexcel set "./Tables/appendix/c/Balance_EP.xlsx", sheet("Balance_EP") modify
 
 ***************************** Balance by EP=1 **********************************
 orth_out `balance_var' if p_actor==1,  ///
@@ -89,7 +89,7 @@ qui putexcel Y18 = `pval'
 ************************************PL******************************************
 ********************************************************************************
 
-putexcel set ".\Tables\appendix\c\Balance_EP.xlsx", sheet("Balance_PL") modify
+putexcel set "./Tables/appendix/c/Balance_EP.xlsx", sheet("Balance_PL") modify
 
 ***************************** Balance by PL=1 **********************************
 orth_out `balance_var' if abogado_pub==1,  ///

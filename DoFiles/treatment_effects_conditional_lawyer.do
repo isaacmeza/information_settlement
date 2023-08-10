@@ -26,14 +26,14 @@ set maxvar 32767
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase abogado_pub
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase abogado_pub
 append using `p2'
 

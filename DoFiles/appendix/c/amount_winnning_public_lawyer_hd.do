@@ -23,7 +23,7 @@ the worker recovering a positive amount.
 *******************************************************************************/
 */
 
-use  ".\DB\scaleup_hd.dta", clear 
+use  "./DB/scaleup_hd.dta", clear 
 
 *We define win as liq_total>0
 gen win=(liq_total>0)*100

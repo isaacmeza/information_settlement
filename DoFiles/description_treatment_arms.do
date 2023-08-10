@@ -27,7 +27,7 @@ version 17.0
 use "./DB/phase_1.dta" , clear	
 
 *Calculate things and write table
-putexcel set ".\Tables\description_treatment_arms.xlsx", modify sheet("description_treatment_arms")
+putexcel set "./Tables/description_treatment_arms.xlsx", modify sheet("description_treatment_arms")
 
 count
 local num = `r(N)'
@@ -43,7 +43,7 @@ putexcel L2 = ("`fechaMax'")
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 
 count
 putexcel D3 = (`r(N)')
@@ -58,7 +58,7 @@ putexcel L3 = ("`fechaMax'")
 
 * Phase 3
 ********************************************************************************
-use ".\DB\phase_3.dta", clear
+use "./DB/phase_3.dta", clear
 
 gen calculadora = main_treatment
 replace calculadora = . if main_treatment==3

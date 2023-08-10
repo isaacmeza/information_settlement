@@ -19,7 +19,7 @@ version 17.0
 *******************************************************************************/
 */
 
-use ".\DB\phase_3.dta", clear
+use "./DB/phase_3.dta", clear
 duplicates drop id_actor, force
 drop if main_treatment==3
 

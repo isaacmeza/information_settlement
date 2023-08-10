@@ -38,7 +38,7 @@ reshape wide ES_1_1, i(folio fecha) j(j)
 tempfile exit
 save `exit'
 
-use ".\DB\phase_1.dta", clear
+use "./DB/phase_1.dta", clear
 
 ********************************************************************************
 *Shows up
@@ -174,7 +174,7 @@ qui putexcel AH5=matrix(EE)
 	
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear 
+use "./DB/phase_2.dta", clear 
 
 ********************************************************************************
 *Shows up

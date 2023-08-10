@@ -22,7 +22,7 @@ distribution of the duration of the case in months, by type of ending.
 
 ********************************************************************************
 	*DB: Calculator:5005
-use  ".\DB\scaleup_hd.dta", clear
+use  "./DB/scaleup_hd.dta", clear
 
 
 *Months after initial sue

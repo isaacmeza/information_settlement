@@ -21,14 +21,14 @@ version 17.0
 */
 
 
-use ".\DB\scaleup_hd.dta", clear
+use "./DB/scaleup_hd.dta", clear
 gen id = _n
 
-*Directory for .\boost64.dll 
+*Directory for ./boost64.dll 
 cd "$directorio"
-*cd D:\WKDir-Stata
+*cd D:/WKDir-Stata
 capture program drop boost_plugin
-program boost_plugin, plugin using("$directorio\boost64.dll")
+program boost_plugin, plugin using("$directorio/boost64.dll")
 
 tab giro_empresa, gen(giro_empresa_d)
 tab tipo_jornada, gen(tipo_jornada_d)
@@ -260,7 +260,7 @@ foreach var of varlist sett  drp cr_win  cr_los  cr_win_ph2 tot_comp_1l dur_2l d
 	cor `var' pr_`var'
 }
 
-save "$directorio\_aux\var_imp_pr.dta", replace
+save "$directorio/_aux/var_imp_pr.dta", replace
 
 
 *****************************************************************************************
@@ -272,7 +272,7 @@ save "$directorio\_aux\var_imp_pr.dta", replace
 *****************************************************************************************
 
 
-use "$directorio\_aux\var_imp_pr.dta", clear
+use "$directorio/_aux/var_imp_pr.dta", clear
 
 foreach var of varlist  salario_diario horas_sem c_antiguedad c_indem c_prima_antig c_rec20 c_ag c_vac c_hextra c_prima_vac c_prima_dom c_desc_sem c_desc_ob c_utilidades c_recsueldo c_total min_indem min_prima_antig min_ag min_vac min_prima_vac min_ley c_sal_caidos prop_hextra {
 	replace `var' = log(`var'+1)
@@ -397,7 +397,7 @@ foreach depvar in  sett  cr_los cr_win drp cr_win_ph2 tot_comp_1l tot_comp_3l to
 	encode feature, gen(ft)
 
 	graph dot beta, over(ft, sort(1) descending)  horizontal   graphregion(color(white)) legend(off)  ytitle("Linear Projection") 
-	graph export ".\Figures\appendix\a\coef1_`model'.tif", replace
+	graph export "./Figures/appendix/a/coef1_`model'.tif", replace
 
 	restore
 	local i = `i'+1

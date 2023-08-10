@@ -35,7 +35,7 @@ set maxvar 30000
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep junta exp anio fecha abogado_pub ganancia modoTermino duration_months treatment numActores phase liq_total_laudo_avg p_actor
 tempfile p2
 save `p2'

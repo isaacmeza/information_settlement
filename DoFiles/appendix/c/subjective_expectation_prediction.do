@@ -25,7 +25,7 @@ version 17.0
 *Plaintiff
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=A_5_5, nq(100)
@@ -55,7 +55,7 @@ graph export "./Figures/appendix/c/diff_prob_e.tif", replace
 *Plaintiff's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=RA_5_5, nq(100)
@@ -86,7 +86,7 @@ graph export "./Figures/appendix/c/diff_prob_el.tif", replace
 *Defendant's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Demandado.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=RD5_5, nq(100)

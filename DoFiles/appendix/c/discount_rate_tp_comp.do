@@ -30,9 +30,9 @@ individuals across rounds).
 
 *MxFLS
 ********************************************************************************
-use "$directorio\DB\iiib_pr.dta", clear
+use "$directorio/DB/iiib_pr.dta", clear
 *Expansion factor
-merge 1:m folio ls using "$directorio\DB\hh09w_b3b.dta", nogen
+merge 1:m folio ls using "$directorio/DB/hh09w_b3b.dta", nogen
 
 *Time preference
 gen beta_monthly=.
@@ -49,7 +49,7 @@ save `temp_mxfls'
 *Plaintiff's Lawyer
 ********************************************************************************
 use "$directorio/DB/Append Encuesta Inicial Representante Actor.dta" , clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
 
 *Time Preferences
 gen beta_monthly=.
@@ -69,7 +69,7 @@ save `temp_2'
 *Defendant's Lawyer
 ********************************************************************************
 use "$directorio/DB/Append Encuesta Inicial Representante Demandado.dta" , clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
 
 *Time Preferences
 gen beta_monthly=.
@@ -89,7 +89,7 @@ save `temp_3'
 *Plaintiff
 ********************************************************************************
 use "$directorio/DB/Append Encuesta Inicial Actor.dta" , clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
 
 *Time Preferences
 gen beta_monthly=.
@@ -191,6 +191,6 @@ twoway (bar mean_tp_1 v1 if party==0, color(black)  ) ///
 		   xlabel( 2.5 "0.33" 7.5 "0.5" 12.5 "0.66" 17.5 "0.83" 22.5 "1", noticks) ///
 		   ytitle("Percentage") title("Time preference") ///
 		    graphregion(color(white)) 
-graph export ".\Figures\appendix\c\discount_rate_tp_comp.tif", replace 
+graph export "./Figures/appendix/c/discount_rate_tp_comp.tif", replace 
  
 	

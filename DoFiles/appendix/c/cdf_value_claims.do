@@ -30,7 +30,7 @@ global pago_pri3=500	/* Payment to private lawyer */
 
 
 *********************************HD DATA****************************************
-use  ".\DB\scaleup_hd.dta", clear
+use  "./DB/scaleup_hd.dta", clear
 
 
 *Outliers
@@ -83,5 +83,5 @@ twoway (kdensity npv_pub, xline(0, lpattern(dash) lcolor(gs10) lwidth(medthick))
 		
 
 graph combine cdf pdf, xcommon cols(1) scheme(s2mono) graphregion(color(white))		
-graph export ".\Figures\appendix\c\cdf_pdf_value_claims.tif", replace 
+graph export "./Figures/appendix/c/cdf_pdf_value_claims.tif", replace 
  

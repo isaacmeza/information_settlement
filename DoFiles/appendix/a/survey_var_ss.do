@@ -24,8 +24,8 @@ version 17.0
 *Plaintiff
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
-putexcel set ".\Tables\appendix\a\survey_var_ss.xlsx", sheet("Plaintiff") modify
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
+putexcel set "./Tables/appendix/a/survey_var_ss.xlsx", sheet("Plaintiff") modify
 
 // Age
 putexcel A5 = ("Age")
@@ -106,8 +106,8 @@ putexcel B34 = (r(N))
 *Plaintiff's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
-putexcel set ".\Tables\appendix\a\survey_var_ss.xlsx", sheet("Lawyers") modify
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
+putexcel set "./Tables/appendix/a/survey_var_ss.xlsx", sheet("Lawyers") modify
 
 // Age
 putexcel A5 = ("Age") 
@@ -183,7 +183,7 @@ putexcel B31 = (r(N))
 *Defendant's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Demandado.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio) keep(3) 
 
 // Age
 putexcel A5 = ("Age") 

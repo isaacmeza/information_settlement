@@ -21,7 +21,7 @@ version 17.0
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep treatment modoTermino payment junta exp anio fecha phase
 tempfile temp_p2
 save `temp_p2'
@@ -51,7 +51,7 @@ label val modoTermino finales
 *Follow-up (more than 5 months)
 
 tab modoTermino treatment if (modoTermino != 5 & modoTermino != 4), matcell(valores)
-putexcel set ".\Tables\case_outcomes_treatment_arm.xlsx", mod sheet("case_outcomes_treatment_arm")
+putexcel set "./Tables/case_outcomes_treatment_arm.xlsx", mod sheet("case_outcomes_treatment_arm")
 
 putexcel C1 = ("Control") D1 = ("Calculator")
 putexcel B2 =("Expired / Dropped") B3 = ("Continues") B4 = ("Settled") B5 = ("Court ruling with payment") B6 = ("Court ruling without payment")

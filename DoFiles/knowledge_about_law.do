@@ -20,7 +20,7 @@ version 17.0
 *******************************************************************************/
 */
 
-use ".\DB\phase_1.dta", clear	
+use "./DB/phase_1.dta", clear	
 merge 1:1 folio using  "./DB/Append Encuesta Inicial Actor.dta" , keep(2 3) nogen
 
 
@@ -42,7 +42,7 @@ tempfile primeras
 save `primeras'
 
 ************************************************
-use ".\DB\phase_1.dta", clear	
+use "./DB/phase_1.dta", clear	
 merge 1:1 folio using  "./DB/Append Encuesta Inicial Actor.dta" , keep(2 3) nogen
 
 	*Indicators whether plaintiff asked for any of the compensations
@@ -112,7 +112,7 @@ twoway (bar mean_total v1 if sabe==2 & abogado_pub==0, color(black)) ///
 		7.5 `" "Knows if asked" "Reinstatement" "' ///
 		10.5 `" "Knows if asked" "Overtime" "', noticks angle(vertical)) ///
 		  graphregion(color(white))
-		graph export ".\Figures\knowledge_about_law.tif", replace
+		graph export "./Figures/knowledge_about_law.tif", replace
 
 	  
 

@@ -24,14 +24,14 @@ version 17.0
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase abogado_pub salario_diario gen c_antiguedad horas_sem min_ley
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase abogado_pub salario_diario gen c_antiguedad horas_sem min_ley
 append using `p2'
 

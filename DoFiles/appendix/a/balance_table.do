@@ -25,7 +25,7 @@ local balance_var trabajador_base c_antiguedad abogado_pub indem salario_diario 
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep junta exp anio fecha treatment phase `balance_var'
 tempfile p2
 save `p2', replace
@@ -60,7 +60,7 @@ drop if out==1
 */
 
 
-putexcel set ".\Tables\appendix\a\balance_table.xlsx", sheet("balance_table") modify
+putexcel set "./Tables/appendix/a/balance_table.xlsx", sheet("balance_table") modify
 orth_out `balance_var' if phase==1,	by(treatment)  vce(robust)   bdec(3)  count
 				
 qui putexcel L5=matrix(r(matrix)) 

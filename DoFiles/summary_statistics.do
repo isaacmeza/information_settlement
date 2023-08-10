@@ -24,7 +24,7 @@ version 17.0
 
 ********************************************************************************
 	*DB: HD:5005
-use  ".\DB\scaleup_hd.dta", clear
+use  "./DB/scaleup_hd.dta", clear
 
 *We define win as liq_total>0
 gen win=(liq_total>0)
@@ -165,7 +165,7 @@ foreach var of varlist abogado_pub gen trabajador_base c_antiguedad salario_diar
 
 ********************************************************************************
 	*DB: Phase 1
-use ".\DB\phase_1.dta", clear
+use "./DB/phase_1.dta", clear
 
 *Generate missing variables
 foreach var in ///
@@ -245,7 +245,7 @@ foreach var of varlist abogado_pub gen trabajador_base c_antiguedad salario_diar
 
 ********************************************************************************
 	*DB: Phase2
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 
 *Generate missing variables
 foreach var in ///
@@ -326,7 +326,7 @@ foreach var of varlist abogado_pub gen trabajador_base c_antiguedad salario_diar
 
 ********************************************************************************
 	*DB: Phase3
-use ".\DB\phase_3.dta", clear
+use "./DB/phase_3.dta", clear
 drop if missing(main_treatment) | main_treatment == 3
 
 *Generate missing variables

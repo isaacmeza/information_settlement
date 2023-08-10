@@ -21,7 +21,7 @@ version 17.0
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep liq_total_laudo modoTermino treatment junta exp anio fecha phase
 tempfile p2
 save `p2'

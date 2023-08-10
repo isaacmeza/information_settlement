@@ -29,21 +29,21 @@ cap erase "./_aux/ritest.dta"
 
 * Phase 3
 ********************************************************************************
-use ".\DB\phase_3.dta", clear
+use "./DB/phase_3.dta", clear
 keep doble_convenio main_treatment gen c_antiguedad salario_diario fecha_alta phase
 tempfile p3
 save `p3', replace
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep seconcilio convenio_m5m fecha junta exp anio fecha treatment p_actor numActores time_hr phase
 append using `p2'
 append using `p3'

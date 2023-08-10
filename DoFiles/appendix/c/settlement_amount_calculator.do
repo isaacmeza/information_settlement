@@ -24,14 +24,14 @@ version 17.0
 
 * Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 keep fecha junta exp anio fecha treatment phase ganancia liq_total_convenio modoTermino abogado_pub
 tempfile p2
 save `p2', replace
 
 * Phase 1
 ********************************************************************************
-use ".\DB\phase_1.dta" , clear	
+use "./DB/phase_1.dta" , clear	
 keep fecha junta exp anio fecha treatment phase ganancia liq_total_convenio modoTermino abogado_pub
 append using `p2'
 
@@ -50,4 +50,4 @@ gen ratioGananciaConvenio = ganancia/liq_total_convenio
 twoway (kdensity ratioGananciaConvenio if treatment==2 & ratioGananciaConvenio<3.5 & modoTermino==3 & abogado_pub==0,  lwidth(medthick) lpattern(solid) color(black)) ///
 	   (kdensity ratioGananciaConvenio if treatment==1 & ratioGananciaConvenio<3.5 & modoTermino==3 & abogado_pub==0, lpattern(dash) lcolor(gs10) lwidth(medthick)), ///
 		legend(lab(1 "Treatment") lab(2 "Control") rows(1) pos(6)) xtitle("Ratio of Amounts")  graphregion(color(white)) ytitle("Density")
-graph export ".\Figures\appendix\c\settlement_amount_calculator.tif", replace
+graph export "./Figures/appendix/c/settlement_amount_calculator.tif", replace

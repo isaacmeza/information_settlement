@@ -35,7 +35,7 @@ dataset.
 *Plaintiff
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=A_5_5, nq(100)
@@ -62,7 +62,7 @@ save `temp_party1'
 *Plaintiff's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Actor.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=RA_5_5, nq(100)
@@ -89,7 +89,7 @@ save `temp_party2'
 *Defendant's Lawyer
 ********************************************************************************
 use "./DB/Append Encuesta Inicial Representante Demandado.dta", clear
-merge m:1 folio using ".\DB\phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
+merge m:1 folio using "./DB/phase_1.dta", keepusing(folio comp_esp prob_esp) keep(3) 
 
 *Outliers
 xtile perc=RD5_5, nq(100)
@@ -126,7 +126,7 @@ save `phase1'
 
 *Phase 2
 ********************************************************************************
-use ".\DB\phase_2.dta", clear
+use "./DB/phase_2.dta", clear
 
 *Outliers
 cap drop perc
@@ -229,7 +229,7 @@ esttab using "$directorio/Tables/appendix/c/expectations_relative_prediction_a.c
 
 *Phase 3
 ********************************************************************************
-use ".\DB\phase_3.dta", clear
+use "./DB/phase_3.dta", clear
 
 
 ************************  Calculator phase 3 prediction  ***********************
